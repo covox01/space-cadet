@@ -6,73 +6,75 @@ import Module1Light1 from "./module1-components/Module1Light1";
 import Module1Light2 from "./module1-components/Module1Light2";
 import Module1Light3 from "./module1-components/Module1Light3";
 import TweenMax from "gsap";
-
 import Module2 from "./Module2";
 
 class Module1 extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			switch1CompletedSequences: 0,
-			switch2CompletedSequences: 0,
-			switch3CompletedSequences: 0,
-			switches: [{ switch1: false }, { switch2: false }, { switch3: false }],
+			switch1CompletedSequences: 1,
+			switch2CompletedSequences: 1,
+			switch3CompletedSequences: 1,
+			switches: [
+				{
+               switch1: false,
+				},
+				{ 
+               switch2: false 
+            },
+				{ 
+               switch3: false 
+            },
+			],
 			moduleComplete: false,
 		};
-	}
+   }
+   
+  
 
 	handleModule1Switch1 = event => {
-		event.preventDefault();
+      event.preventDefault();
+      const updateSwitchArray = [...this.state.switches];
 		let completedSequenceSwitch1 = this.state.switch1CompletedSequences;
-		if (completedSequenceSwitch1 === 1) {
-			// let filterSwitch1 = this.state.switches.filter(value => {
-			// 	return value.switch1 === false;
-			// });
-			// let updateSwitch1 = filterSwitch1.map(value => {
-			// 	return (value = { switch1: true });
-         // });
-         // this.setState.switches[1] = true
-         // let updateSwitch1 = this.setState.switches[1]
-			// console.log(updateSwitch1);
-			this.setState(prevState => ({
-				switch1CompletedSequences: 2,
-				// switches: [...prevState.switches, updateSwitch1],
-			}));
+		if (completedSequenceSwitch1 === 2) {
+         const updateSwitch = { switch1: true };
+         updateSwitchArray.splice(0, 1, updateSwitch)
+			this.setState({
+				switch1CompletedSequences: 3,
+				switches: updateSwitchArray
+			});
 		} else if (completedSequenceSwitch1 < 3) {
-			for (let i = 0; completedSequenceSwitch1 < 3; i++) {
+			for (let i = 0; completedSequenceSwitch1 < 4; i++) {
 				completedSequenceSwitch1 += 1;
-				console.log(completedSequenceSwitch1);
 				break;
 			}
 			this.setState({
 				switch1CompletedSequences: completedSequenceSwitch1,
 			});
 		} else {
-			this.setState({
-				switch1CompletedSequences: 0,
-				switches: [{ switch1: false }],
-			});
+         const updateSwitch = { switch1: false };
+         updateSwitchArray.splice(0, 1, updateSwitch)
+			this.setState(prevState => ({
+				switch1CompletedSequences: 2,
+				switches: updateSwitchArray
+			}));  
 		}
-	};
+   };
+   
 
 	handleModule1Switch2 = event => {
-		event.preventDefault();
+      event.preventDefault();
+      const updateSwitchArray = [...this.state.switches]
 		let completedSequenceSwitch2 = this.state.switch2CompletedSequences;
-		if (completedSequenceSwitch2 === 1) {
-			let filterSwitch2 = this.state.switches.filter(value => {
-				return value.switch1 === false;
+		if (completedSequenceSwitch2 === 2) {
+         const updateSwitch = {switch2: true}
+         updateSwitchArray.splice(1, 1, updateSwitch)
+			this.setState({
+				switch2CompletedSequences: 3,
+				switches: updateSwitchArray
 			});
-			let updateSwitch2 = filterSwitch2.map(value => {
-				return (value = { switch2: true });
-			});
-			console.log(updateSwitch2);
-			this.setState(prevState => ({
-				switch2CompletedSequences: 2,
-            // switches: [{ switch2: true }, { switch3: false }],
-            switches: [...prevState.switches, updateSwitch2]
-			}));
 		} else if (completedSequenceSwitch2 < 3) {
-			for (let i = 0; completedSequenceSwitch2 < 3; i++) {
+			for (let i = 0; completedSequenceSwitch2 < 4; i++) {
 				completedSequenceSwitch2 += 1;
 				console.log(completedSequenceSwitch2);
 				break;
@@ -81,10 +83,12 @@ class Module1 extends Component {
 				switch2CompletedSequences: completedSequenceSwitch2,
 			});
 		} else {
+         const updateSwitch = { switch2: false };
+         updateSwitchArray.splice(1, 1, updateSwitch)
 			this.setState({
-				switch2CompletedSequences: 0,
-				switches: [{ switch3: false }],
-			});
+				switch2CompletedSequences: 2,
+            switches: updateSwitchArray
+         })
 		}
 	};
 
