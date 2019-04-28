@@ -12,9 +12,9 @@ class Module1 extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			switch1CompletedSequences: 1,
-			switch2CompletedSequences: 1,
-			switch3CompletedSequences: 1,
+			switch1CompletedSequences: 0,
+			switch2CompletedSequences: 0,
+			switch3CompletedSequences: 0,
 			switches: [
 				{
                switch1: false,
@@ -30,21 +30,19 @@ class Module1 extends Component {
 		};
    }
    
-  
-
 	handleModule1Switch1 = event => {
       event.preventDefault();
       const updateSwitchArray = [...this.state.switches];
 		let completedSequenceSwitch1 = this.state.switch1CompletedSequences;
-		if (completedSequenceSwitch1 === 2) {
+		if (completedSequenceSwitch1 === 1) {
          const updateSwitch = { switch1: true };
          updateSwitchArray.splice(0, 1, updateSwitch)
 			this.setState({
-				switch1CompletedSequences: 3,
+				switch1CompletedSequences: 2,
 				switches: updateSwitchArray
 			});
-		} else if (completedSequenceSwitch1 < 3) {
-			for (let i = 0; completedSequenceSwitch1 < 4; i++) {
+		} else if (completedSequenceSwitch1 < 2) {
+			for (let i = 0; completedSequenceSwitch1 < 3; i++) {
 				completedSequenceSwitch1 += 1;
 				break;
 			}
@@ -54,10 +52,10 @@ class Module1 extends Component {
 		} else {
          const updateSwitch = { switch1: false };
          updateSwitchArray.splice(0, 1, updateSwitch)
-			this.setState(prevState => ({
-				switch1CompletedSequences: 2,
+			this.setState({
+				switch1CompletedSequences: 1,
 				switches: updateSwitchArray
-			}));  
+			});  
 		}
    };
    
@@ -66,15 +64,15 @@ class Module1 extends Component {
       event.preventDefault();
       const updateSwitchArray = [...this.state.switches]
 		let completedSequenceSwitch2 = this.state.switch2CompletedSequences;
-		if (completedSequenceSwitch2 === 2) {
+		if (completedSequenceSwitch2 === 1) {
          const updateSwitch = {switch2: true}
          updateSwitchArray.splice(1, 1, updateSwitch)
 			this.setState({
-				switch2CompletedSequences: 3,
+				switch2CompletedSequences: 2,
 				switches: updateSwitchArray
 			});
-		} else if (completedSequenceSwitch2 < 3) {
-			for (let i = 0; completedSequenceSwitch2 < 4; i++) {
+		} else if (completedSequenceSwitch2 < 2) {
+			for (let i = 0; completedSequenceSwitch2 < 3; i++) {
 				completedSequenceSwitch2 += 1;
 				console.log(completedSequenceSwitch2);
 				break;
@@ -86,22 +84,25 @@ class Module1 extends Component {
          const updateSwitch = { switch2: false };
          updateSwitchArray.splice(1, 1, updateSwitch)
 			this.setState({
-				switch2CompletedSequences: 2,
+				switch2CompletedSequences: 1,
             switches: updateSwitchArray
          })
 		}
 	};
 
 	handleModule1Switch3 = event => {
-		event.preventDefault();
+      event.preventDefault();
+      const updateSwitchArray = [...this.state.switches];
 		let completedSequenceSwitch3 = this.state.switch3CompletedSequences;
 		if (completedSequenceSwitch3 === 1) {
+         const updateSwitch = {switch3: true}
+         updateSwitchArray.splice(2, 1, updateSwitch)
 			this.setState({
 				switch3CompletedSequences: 2,
-				switches: [{ switch3: true }],
+				switches: updateSwitchArray
 			});
 			this.checkModuleComplete();
-		} else if (completedSequenceSwitch3 < 3) {
+		} else if (completedSequenceSwitch3 < 2) {
 			for (let i = 0; completedSequenceSwitch3 < 3; i++) {
 				completedSequenceSwitch3 += 1;
 				console.log(completedSequenceSwitch3);
@@ -111,9 +112,11 @@ class Module1 extends Component {
 				switch3CompletedSequences: completedSequenceSwitch3,
 			});
 		} else {
+         const updateSwitch = {switch3: false}
+         updateSwitchArray.splice(2, 1, updateSwitch)
 			this.setState({
-				switch3CompletedSequences: 0,
-				switches: [{ switch3: false }],
+            switch3CompletedSequences: 1,
+            switches: updateSwitchArray
 			});
 		}
 	};
