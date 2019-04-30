@@ -4,11 +4,30 @@ import React, { Component } from "react";
 class Module1Light1 extends Component {
 	constructor() {
 		super();
-		this.state = {};
-	}
+		this.state = {
+         switchComplete: false
+      };
+   }
+
+   componentDidUpdate(prevProps, prevState){
+      if (this.state.switchComplete === false && this.props.switchComplete === true) {
+         this.setState({
+            switchComplete: true
+         })
+      } else if (this.state.switchComplete === true && this.props.switchComplete === false) {
+         this.setState({
+            switchComplete: false
+         })
+      } 
+   }
+
+
 	render() {
 		return (
-			<g id="am1-light-1">
+         <g 
+            id="am1-light-1" 
+            switchComplete={this.props.switchComplete} 
+            ref={g => (this.handleLight = g)}>
 				<path
 					id="am1-light-face-1"
 					fill="gray"

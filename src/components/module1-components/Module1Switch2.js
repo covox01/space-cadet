@@ -1,15 +1,37 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import TweenMax from "gsap";
 
 class Module1Switch2 extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			animate: false,
+         animate: false,
+         completedSequence: 0,
+         switchComplete: false
 		};
 		this.trigger2 = null;
 		this.trigger2Tween = null;
 	}
+
+	handleSwitch2 = () => {
+		if (this.state.completedSequence === 0) {
+			this.setState({
+				completedSequence: 1,
+			});
+		} else if (this.state.completedSequence === 1) {
+			this.setState({
+				completedSequence: 2,
+				switchComplete: true,
+			});
+			this.props.handleModule1Switch2();
+		} else {
+			this.setState({
+				completedSequence: 1,
+				switchComplete: false,
+			});
+			this.props.handleModule1Switch2();
+		}
+	};
 
 	animate = () => {
 		if (!this.state.animate) {
@@ -26,16 +48,12 @@ class Module1Switch2 extends Component {
 	};
 
 	handleClick = event => {
-      this.props.handleModule1Switch2(event);
-      // this.props.checkModuleComplete();
-      this.animate();
+		this.handleSwitch2();
+		this.animate();
 	};
 	render() {
 		return (
-			<g
-				id="am1-switch-2"
-				onClick={this.handleClick}
-			>
+			<g id="am1-switch-2" onClick={() => this.handleClick()}>
 				<path
 					fill="#282828"
 					d="M478.4,391.8L478.4,391.8c-10.9,0-19.7-8.8-19.7-19.7V127c0-10.9,8.8-19.7,19.7-19.7l0,0 c10.9,0,19.7,8.8,19.7,19.7v245C498.1,383,489.3,391.8,478.4,391.8z"
@@ -48,6 +66,7 @@ class Module1Switch2 extends Component {
 					/>
 				</g>
 			</g>
+         <Module1Light2 handleModule1Light2={this.handleModule1Light2} />
 		);
 	}
 }

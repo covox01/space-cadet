@@ -21,22 +21,28 @@ class App extends Component {
 			module5: false,
 			module6: false,
 			module7: false,
-			module1Hover: false,
-			module1SwitchHover: false,
 		};
-	}
+   }
+   
+   handleModule1 = (checkArray) => {
+      console.log(checkArray)
+      if (this.state.module1 === false && checkArray === true) {
+         this.setState({
+            module1: checkArray
+         })
+      } else if (this.state.module1 === true && checkArray === false) {
+         this.setState({
+            module1: checkArray
+         })
+      }
+   }
 
-
-
-
-
-	handleModule1Switch1HoverOff;
 
 	render() {
 		return (
 			<div className="super-container">
 				<div className="app-container">
-					<Module1 />
+					<Module1 handleModule1={(checkArray) => this.handleModule1(checkArray)}/>
 					<Module2 />
 					<Module3 />
 					<Module4 />
