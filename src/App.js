@@ -25,7 +25,6 @@ class App extends Component {
    }
    
    handleModule1 = (checkArray) => {
-      console.log(checkArray)
       if (this.state.module1 === false && checkArray === true) {
          this.setState({
             module1: checkArray

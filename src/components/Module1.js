@@ -2,10 +2,6 @@ import React, { Component, Fragment } from "react";
 import Module1Switch1 from "./module1-components/Module1Switch1";
 import Module1Switch2 from "./module1-components/Module1Switch2";
 import Module1Switch3 from "./module1-components/Module1Switch3";
-import Module1Light1 from "./module1-components/Module1Light1";
-import Module1Light2 from "./module1-components/Module1Light2";
-import Module1Light3 from "./module1-components/Module1Light3";
-import TweenMax from "gsap";
 
 class Module1 extends Component {
 	constructor(props) {
@@ -22,48 +18,15 @@ class Module1 extends Component {
 					switch3: false,
 				},
 			],
-			moduleComplete: false,
 		};
 	}
 
-	checkIfTrue = () => {
-		const updateSwitchArray = [...this.state.switches];
-		let checkArray = updateSwitchArray
-			.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
-			.every(x => x);
-		console.log(checkArray);
-		if (checkArray === true) {
-         this.props.handleModule1(checkArray)
-			// this.setState({
-			// 	moduleComplete: true,
-			// });
-		}
-	};
-
-	checkIfFalse = () => {
-		const updateSwitchArray = [...this.state.switches];
-		let checkArray = updateSwitchArray
-			.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
-			.every(x => x);
-      console.log(checkArray);
-      if (checkArray === false) {
-         this.props.handleModule1(checkArray)
-         // this.setState({
-         //    moduleComplete: false
-         // })
-      }
-	};
-
 	componentDidUpdate() {
-      const updateSwitchArray = [...this.state.switches];
-			let checkArray = updateSwitchArray
-				.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
-				.every(x => x);
-		if (checkArray === true) {
-			this.props.handleModule1(checkArray);
-		} else {
-			this.props.handleModule1(checkArray);
-		}
+		const updateSwitchArray = [...this.state.switches];
+		let checkArray = updateSwitchArray
+			.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
+			.every(x => x);
+		this.props.handleModule1(checkArray);
 	}
 
 	handleModule1Switch1 = () => {
@@ -155,9 +118,6 @@ class Module1 extends Component {
 					handleModule1Switch3={() => this.handleModule1Switch3()}
 					checkModuleComplete={this.checkModuleComplete}
 				/>
-
-				
-				<Module1Light3 handleModule1Light3={this.handleModule1Light3} />
 			</svg>
 		);
 	}

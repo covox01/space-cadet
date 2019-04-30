@@ -3,8 +3,22 @@ import React, { Component } from "react";
 class Module1Light2 extends Component {
 	constructor() {
 		super();
-		this.state = {};
-	}
+		this.state = {
+         switchComplete: false
+      };
+   }
+   
+   componentDidUpdate(){
+      if (this.state.switchComplete === false && this.props.switchComplete === true) {
+         this.setState({
+            switchComplete: true
+         })
+      } else if (this.state.switchComplete === true && this.props.switchComplete === false) {
+         this.setState({
+            switchComplete: false
+         })
+      }
+   }
 	render() {
 		return (
 			<g id="am1-light-2">
