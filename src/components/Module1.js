@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import Module1Switch1 from "./module1-components/Module1Switch1";
 import Module1Switch2 from "./module1-components/Module1Switch2";
 import Module1Switch3 from "./module1-components/Module1Switch3";
+import Module1Animation from "./module1-components/Module1Animation"
 
 class Module1 extends Component {
 	constructor(props) {

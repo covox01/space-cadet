@@ -39,12 +39,12 @@ class Module1Switch3 extends Component {
 			this.setState({
 				animate: true,
 			});
-			this.trigger3Tween = TweenMax.to(this.trigger3, 1, { y: 140 });
+			this.trigger3Tween = TweenMax.to(this.trigger3, .5, { y: 140 });
 		} else {
 			this.setState({
 				animate: false,
 			});
-			this.trigger3Tween = TweenMax.to(this.trigger3, 1, { y: 0 });
+			this.trigger3Tween = TweenMax.to(this.trigger3, .5, { y: 0 });
 		}
 	};
 
