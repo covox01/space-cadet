@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Module1Light1 from "./Module1Light1";
-import Module1Animation from "./Module1Animation";
-import { Back, TimelineLite, Elastic } from "gsap";
+import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap";
 
 class Module1Switch1 extends Component {
 	constructor(props) {
@@ -35,40 +34,40 @@ class Module1Switch1 extends Component {
 	};
 
 	switchDown = () => {
-   //   return Module1Animation
-      this.triggerTween
-         .to(this.trigger, 0.5, {
+
+      this.triggerTween.kill()
+         .to(this.trigger, 0.2, {
             y: 140,
             fill: "#a1dbc3",
             ease: Back.easeInOut,
          })
-         .to(this.filter, 0.5, {
+         .to(this.filter, 0.2, {
             attr: { stdDeviation: 15 },
             ease: Elastic.easeOut
-         }, "-=.3")
-         .to([this.trigger, this.filter], 0.5, {
+         }, "-=.1")
+         .to([this.trigger, this.filter], 0.2, {
             attr: { stdDeviation: 20 },
             fill: "#a3e8ce",
             ease: Elastic.easeOut,
-         }, "-=.3");
+         }, "-=.1");
    }
    
    switchUp = () => {
-      this.triggerTween
-         .to(this.trigger, 0.5, {
+      this.triggerTween.kill()
+         .to(this.trigger, 0.2, {
             y: 0,
             fill: "#9cd3bd",
             ease: Back.easeInOut,
          })
-         .to(this.filter, 0.5, {
+         .to(this.filter, 0.2, {
             attr: { stdDeviation: 15 },
             ease: Elastic.easeOut,
-         }, "-=.3")
-         .to([this.filter, this.trigger], 0.5, {
+         }, "-=.1")
+         .to([this.filter, this.trigger], 0.2, {
             attr: { stdDeviation: 20 },
             ease: Elastic.easeOut,
             fill: "#a3e8ce"
-         }, "-=.3");
+         }, "-=.2");
    }
 
 	handleClick = () => {
@@ -97,7 +96,7 @@ class Module1Switch1 extends Component {
 					/>
 					<g id="am1-trigger-1">
 						<path
-							ref={g => (this.trigger = g)}
+							ref={path => (this.trigger = path)}
 							filter="url(#switch1)"
 							rotate="90"
 							id="am1-trigger-face-1"

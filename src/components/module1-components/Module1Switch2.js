@@ -10,8 +10,6 @@ class Module1Switch2 extends Component {
 			completedSequence: 0,
 			switchComplete: false,
 		};
-		this.trigger = null;
-      this.trigger2Tween = null;
       this.triggerTween = new TimelineLite();
 	}
 
@@ -37,59 +35,39 @@ class Module1Switch2 extends Component {
    
    switchDown = () => {
       this.triggerTween
-         .to(this.trigger, 0.5, {
+         .to(this.trigger, 0.2, {
             y: 140,
             fill: "#a1dbc3",
             ease: Back.easeInOut,
          })
-         .to(this.filter, 0.5, {
+         .to(this.filter, 0.2, {
             attr: { stdDeviation: 15 },
             ease: Elastic.easeOut
-         }, "-=.3")
-         .to([this.trigger, this.filter], 0.5, {
+         }, "-=.1")
+         .to([this.trigger, this.filter], 0.2, {
             attr: { stdDeviation: 20 },
             fill: "#a3e8ce",
             ease: Elastic.easeOut,
-         }, "-=.3");
+         }, "-=.1");
    }
    
    switchUp = () => {
       this.triggerTween
-         .to(this.trigger, 0.5, {
+         .to(this.trigger, 0.2, {
             y: 0,
             fill: "#9cd3bd",
             ease: Back.easeInOut,
          })
-         .to(this.filter, 0.5, {
+         .to(this.filter, 0.2, {
             attr: { stdDeviation: 15 },
             ease: Elastic.easeOut,
-         }, "-=.3")
-         .to([this.filter, this.trigger], 0.5, {
+         }, "-=.1")
+         .to([this.filter, this.trigger], 0.2, {
             attr: { stdDeviation: 20 },
             ease: Elastic.easeOut,
             fill: "#a3e8ce"
-         }, "-=.3");
+         }, "-=.1");
    }
-
-	// animate = () => {
-	// 	if (!this.state.animate) {
-	// 		this.setState({
-	// 			animate: true,
-	// 		});
-	// 		this.trigger2Tween = TweenMax.to(this.trigger2, 0.5, {
-	// 			y: 140,
-	// 			fill: "#a3e8ce",
-	// 		});
-	// 		this.filterTween = TweenMax.to(this.filter, 0.5, {
-	// 			attr: { stdDeviation: 20 },
-	// 		});
-	// 	} else {
-	// 		this.setState({
-	// 			animate: false,
-	// 		});
-	// 		this.trigger2Tween = TweenMax.to(this.trigger2, 0.5, { y: 0 });
-	// 	}
-	// };
 
 	handleClick = () => {
 		this.handleSwitch();
@@ -104,7 +82,8 @@ class Module1Switch2 extends Component {
          })
          this.switchUp();
       }
-	};
+   };
+   
 	render() {
 		return (
 			<Fragment>

@@ -16,15 +16,15 @@ class Module1Light1 extends Component {
       });
       const triggerTween = new TimelineLite()
       triggerTween
-         .to([this.light, this.filter], 0.5, {
+         .to([this.light, this.filter], 0.2, {
             attr: { stdDeviation: 30 },
             ease: Elastic.easeOut,
-         }).delay(.45)
-         .to([this.light, this.filter], 0.5, {
+         }).delay(.1)
+         .to([this.light, this.filter], 0.2, {
             fill: "#f9e815",
             attr: { stdDeviation: 15 },
             ease: Elastic.easeOut,
-         }, "-=3");
+         }, "-=2");
 	};
 
 	handleLightOff = () => {
@@ -33,7 +33,7 @@ class Module1Light1 extends Component {
       })
       const triggerTween = new TimelineLite();
       triggerTween
-         .to([this.light, this.filter], 0.5, {
+         .to([this.light, this.filter], 0.2, {
             fill: "#808080",
             attr: { stdDeviation: 0 },
             ease: Back.easeInOut

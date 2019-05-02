@@ -2,7 +2,8 @@ import React, { Component, Fragment } from "react";
 import Module1Switch1 from "./module1-components/Module1Switch1";
 import Module1Switch2 from "./module1-components/Module1Switch2";
 import Module1Switch3 from "./module1-components/Module1Switch3";
-import Module1Animation from "./module1-components/Module1Animation"
+import { Back, Elastic, TimelineLite } from "gsap";
+import { timingSafeEqual } from "crypto";
 
 class Module1 extends Component {
 	constructor(props) {
@@ -20,14 +21,6 @@ class Module1 extends Component {
 				},
 			],
 		};
-	}
-
-	componentDidUpdate() {
-		const updateSwitchArray = [...this.state.switches];
-		let checkArray = updateSwitchArray
-			.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
-			.every(x => x);
-		this.props.handleModule1(checkArray);
 	}
 
 	handleModule1Switch1 = () => {
@@ -84,6 +77,42 @@ class Module1 extends Component {
 		}
 	};
 
+	moduleBorderOn = () => {
+		const borderTween = new TimelineLite();
+		borderTween
+			.to([this.border, this.filter], 0.2, {
+				fill: "#0bf7a2",
+				opacity: 0.8,
+            attr: { stdDeviation: 15 },
+            ease: Back.easeOut
+			})
+			.delay(0.1);
+	};
+
+	moduleBorderOff = () => {
+		const borderTween = new TimelineLite();
+		borderTween
+			.to([this.border, this.filter], 0.2, {
+				fill: "#808080",
+				opacity: 1,
+            attr: { stdDeviation: 0 },
+            ease: Back.easeOut
+			})
+	};
+
+	componentDidUpdate() {
+		const updateSwitchArray = [...this.state.switches];
+		let checkArray = updateSwitchArray
+			.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
+			.every(x => x);
+		this.props.handleModule1(checkArray);
+		if (checkArray === true) {
+			this.moduleBorderOn();
+		} else {
+			this.moduleBorderOff();
+		}
+	}
+
 	render() {
 		return (
 			<svg
@@ -101,10 +130,29 @@ class Module1 extends Component {
 						d="M858.2,5.6H375.6h-0.7v548.8h0.7h482.8c3.6,0,6.6-3,6.6-6.6V12.2C864.8,8.6,862,5.6,858.2,5.6z"
 					/>
 					<path
+						ref={path => (this.border = path)}
 						id="am1-bg-outline"
+						filter="url(#border1)"
 						fill="gray"
 						d="M858.2,0H101.8C95,0,89.6,5.4,89.6,12.2v535.7c0,6.7,5.4,12.2,12.2,12.2h272.9h0.7 h482.8c6.7,0,12.2-5.4,12.2-12.2V12.2C870.4,   5.4,865,0,858.2,0z M864.8,547.8c0,3.6-3,6.6-6.6,6.6H101.8c-3.6,0-6.6-3-6.6-6.6V12.2 c0-3.6,3-6.6,6.6-6.6h756.5c3.6,0,6.6,3,6.6,6.6V547.8z"
 					/>
+					<defs>
+						<filter id="border1" x="-.5" y="-.5" width="200%" height="200%">
+							<feOffset in="SourceGraphic" dx="0" dy="0" />
+							<feGaussianBlur
+								ref={filter => (this.filter = filter)}
+								result="blurOut"
+								in="offOut"
+								stdDeviation="0"
+							/>
+							<feBlend
+								in="SourceGraphic"
+								in2="blurOut"
+								mode="normal"
+								opacity="0"
+							/>
+						</filter>
+					</defs>
 				</g>
 				<Module1Switch1
 					handleModule1Switch1={() => this.handleModule1Switch1()}
