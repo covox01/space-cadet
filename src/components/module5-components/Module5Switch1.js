@@ -13,7 +13,7 @@ class Module5Switch1 extends Component {
    
    switchOn = () => {
       this.triggerTween
-         .to([this.filter, this.innerCircle], 0.3, {
+         .to([this.filter, this.innerCircle], 0.5, {
             attr: { stdDeviation: 10},
             fill: "#efda73",
             ease: Power3.easeOut,
@@ -22,7 +22,7 @@ class Module5Switch1 extends Component {
 
    switchOff = () => {
       this.triggerTween
-         .to([this.filter, this.innerCircle], 0.3, {
+         .to([this.filter, this.innerCircle], 0.5, {
             attr: { stdDeviation: 10},
             fill: "#808080",
             ease: Power3.easeOut
