@@ -1,14 +1,12 @@
-import React, { Component } from "react";
-import { Back, Elastic, TimelineLite} from "gsap";
+import React, { Component, Fragment } from "react";
+import { Back, Elastic, TimelineLite } from "gsap";
 
-class Module1Light2 extends Component {
+class Module2Light2 extends Component {
 	constructor() {
 		super();
 		this.state = {
 			lightOn: false,
 		};
-		this.light = null;
-		this.lightTween = null;
 	}
 
 	handleLightOn = () => {
@@ -26,7 +24,7 @@ class Module1Light2 extends Component {
 				[this.light, this.filter],
 				0.2,
 				{
-					fill: "#efda73",
+					fill: "#ef1c00",
 					attr: { stdDeviation: 15 },
 					ease: Elastic.easeOut,
 				},
@@ -46,7 +44,6 @@ class Module1Light2 extends Component {
 		});
 	};
 
-	// Detects if Module Switch is true and will fire the function to animate accordingly
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.lightOn === false && this.props.switchComplete === true) {
 			this.handleLightOn();
@@ -60,16 +57,18 @@ class Module1Light2 extends Component {
 
 	render() {
 		return (
-			<g id="am1-light-2">
-				<path
-					filter="url(#light2)"
-					ref={path => (this.light = path)}
-					id="am1-light-face-2"
-					fill="gray"
-					d="M478.2,428.5c-11.2,0-20.4,9.2-20.4,20.4s9.2,20.4,20.4,20.4s20.4-9.2,20.4-20.4 S489.5,428.5,478.2,428.5z"
-				/>
+			<Fragment>
+				<g id="am2-light-2">
+               <circle 
+                  ref={circle => (this.light = circle)}
+                  filter="url(#module2-light2)"
+                  fill="gray" 
+                  cx="750" 
+                  cy="384.9" 
+                  r="18.2" />
+				</g>
 				<defs>
-					<filter id="light2" x="-1.8" y="-1.8" width="600%" height="600%">
+					<filter id="module2-light2" x="-1.8" y="-1.8" width="600%" height="600%">
 						<feOffset in="SourceGraphic" dx="0" dy="0" />
 						<feGaussianBlur
 							ref={filter => (this.filter = filter)}
@@ -85,8 +84,9 @@ class Module1Light2 extends Component {
 						/>
 					</filter>
 				</defs>
-			</g>
+			</Fragment>
 		);
 	}
 }
-export default Module1Light2;
+
+export default Module2Light2;

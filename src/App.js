@@ -22,30 +22,59 @@ class App extends Component {
 			module6: false,
 			module7: false,
 		};
-   }
-   
-   handleModule1 = (checkArray) => {
-      if (this.state.module1 === false && checkArray === true) {
-         this.setState({
-            module1: checkArray
-         })
-      } else if (this.state.module1 === true && checkArray === false) {
-         this.setState({
-            module1: checkArray
-         })
-      }
-   }
+	}
 
+	handleModule1 = checkArray => {
+		if (this.state.module1 === false && checkArray === true) {
+			this.setState({
+				module1: checkArray,
+			});
+		} else if (this.state.module1 === true && checkArray === false) {
+			this.setState({
+				module1: checkArray,
+			});
+		}
+	};
+
+	handleModule2 = checkArray => {
+		if (this.state.module2 === false && checkArray === true) {
+			this.setState({
+				module2: checkArray,
+			});
+		} else if (this.state.module2 === true && checkArray === false) {
+			this.setState({
+				module2: checkArray,
+			});
+		}
+	};
+
+	handleModule5 = checkArray => {
+		if (this.state.module5 === false && checkArray === true) {
+			this.setState({
+				module2: checkArray,
+			});
+		} else if (this.state.module5 === true && checkArray === false) {
+			this.setState({
+				module2: checkArray,
+			});
+		}
+	};
 
 	render() {
 		return (
 			<div className="super-container">
 				<div className="app-container">
-					<Module1 handleModule1={(checkArray) => this.handleModule1(checkArray)}/>
-					<Module2 />
+					<Module1
+						handleModule1={checkArray => this.handleModule1(checkArray)}
+					/>
+					<Module2
+						handleModule2={checkArray => this.handleModule2(checkArray)}
+					/>
 					<Module3 />
 					<Module4 />
-					<Module5 />
+					<Module5
+						handleModule5={checkArray => this.handleModule5(checkArray)}
+					/>
 					<Module6 />
 					<Module7 />
 					<Module8 />

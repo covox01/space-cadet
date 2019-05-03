@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Back, Elastic, TimelineLite } from "gsap";
-import "../../App.css";
 
-class Module1Light1 extends Component {
+class Module2Light1 extends Component {
 	constructor() {
-		super();
-		this.state = {
-			lightOn: false,
-		};
-	}
-
-	handleLightOn = () => {
+      super();
+      this.state = {
+         lightOn: false,
+      };
+   }
+   
+   handleLightOn = () => {
 		this.setState({
 			lightOn: true,
       });
@@ -24,7 +23,7 @@ class Module1Light1 extends Component {
             fill: "#efda73",
             attr: { stdDeviation: 15 },
             ease: Elastic.easeOut,
-         }, "-=2");
+         }, "-=3");
 	};
 
 	handleLightOff = () => {
@@ -40,6 +39,7 @@ class Module1Light1 extends Component {
 		   })
 	};
 
+	// Detects if Module Switch is true and will fire the function to animate accordingly
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.lightOn === false && this.props.switchComplete === true) {
 			this.handleLightOn();
@@ -53,17 +53,16 @@ class Module1Light1 extends Component {
 
 	render() {
 		return (
-			<g id="am1-light-1">
+			<Fragment>
 				<path
-					filter="url(#light1)"
-					id="am1-light-face-1"
-					fill="grey"
-					d="M275.4,428.5c-11.2,0-20.4,9.2-20.4,20.4s9.2,20.4,20.4,20.4s20.4-9.2,20.4-20.4 S286.6,428.5,275.4,428.5z"
-					pointerEvents="none"
+					filter="url(#module2Light1)"
 					ref={path => (this.light = path)}
+					fill="gray"
+					d="M750,163.3c-11.2,0-20.4,9.2-20.4,20.4s9.2,20.4,20.4,20.4c11.2,0,20.4-9.2,20.4-20.4 S761.2,163.3,750,163.3z"
+					id="am2-light-1"
 				/>
 				<defs>
-					<filter id="light1" x="-1.8" y="-1.8" width="600%" height="600%">
+					<filter id="module2Light1" x="-1.8" y="-1.8" width="600%" height="600%">
 						<feOffset in="SourceGraphic" dx="0" dy="0" />
 						<feGaussianBlur
 							ref={filter => (this.filter = filter)}
@@ -79,8 +78,9 @@ class Module1Light1 extends Component {
 						/>
 					</filter>
 				</defs>
-			</g>
+			</Fragment>
 		);
 	}
 }
-export default Module1Light1;
+
+export default Module2Light1;

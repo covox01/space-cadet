@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import Module1Light1 from "./Module1Light1";
+import "../../App.css"
 import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap";
 
 class Module1Switch1 extends Component {
@@ -34,11 +35,10 @@ class Module1Switch1 extends Component {
 	};
 
 	switchDown = () => {
-
-      this.triggerTween.kill()
+      this.triggerTween
          .to(this.trigger, 0.2, {
             y: 140,
-            fill: "#a1dbc3",
+            fill: "#efda73",
             ease: Back.easeInOut,
          })
          .to(this.filter, 0.2, {
@@ -47,13 +47,13 @@ class Module1Switch1 extends Component {
          }, "-=.1")
          .to([this.trigger, this.filter], 0.2, {
             attr: { stdDeviation: 20 },
-            fill: "#a3e8ce",
+            fill: "#efda73",
             ease: Elastic.easeOut,
          }, "-=.1");
    }
    
    switchUp = () => {
-      this.triggerTween.kill()
+      this.triggerTween
          .to(this.trigger, 0.2, {
             y: 0,
             fill: "#9cd3bd",
@@ -83,7 +83,6 @@ class Module1Switch1 extends Component {
          })
          this.switchUp();
       }
-		
 	};
 
 	render() {
@@ -122,6 +121,7 @@ class Module1Switch1 extends Component {
 						</filter>
 					</defs>
 				</g>
+            <div> hello </div>
 				<Module1Light1 switchComplete={this.state.switchComplete} />
 			</Fragment>
 		);

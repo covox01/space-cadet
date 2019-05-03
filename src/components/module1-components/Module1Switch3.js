@@ -37,7 +37,7 @@ class Module1Switch3 extends Component {
       this.triggerTween
          .to(this.trigger, 0.2, {
             y: 140,
-            fill: "#a1dbc3",
+            fill: "#efda73",
             ease: Back.easeInOut,
          })
          .to(this.filter, 0.2, {
@@ -46,7 +46,7 @@ class Module1Switch3 extends Component {
          }, "-=.1")
          .to([this.trigger, this.filter], 0.2, {
             attr: { stdDeviation: 20 },
-            fill: "#a3e8ce",
+            fill: "#efda73",
             ease: Elastic.easeOut,
          }, "-=.1");
    }

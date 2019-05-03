@@ -19,9 +19,9 @@ class Module1Light3 extends Component {
          .to([this.light, this.filter], 0.2, {
             attr: { stdDeviation: 30 },
             ease: Elastic.easeOut,
-         }).delay(.2)
+         }).delay(.1)
          .to([this.light, this.filter], 0.2, {
-            fill: "#f9e815",
+            fill: "#efda73",
             attr: { stdDeviation: 15 },
             ease: Elastic.easeOut,
          }, "-=3");
