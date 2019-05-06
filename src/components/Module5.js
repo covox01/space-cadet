@@ -149,9 +149,8 @@ class Module5 extends Component {
 					/>
 				</g>
 
-				<Module5Switch1 handleModule5Switch1={this.handleModule5Switch1} />
+				<Module5Switch1 handleModule5Switch1={this.handleModule5Switch1} handleModule5Switch3={this.handleModule5Switch3}/>
 				<Module5Switch2 handleModule5Switch2={this.handleModule5Switch2} />
-				<Module5Switch3 handleModule5Switch3={this.handleModule5Switch3} />
 				<Module5Switch4 handleModule5Switch4={this.handleModule5Switch4} />
 			</svg>
 		);

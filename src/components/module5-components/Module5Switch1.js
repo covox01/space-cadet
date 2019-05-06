@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from "react";
 import { Back, Elastic, TimelineLite, Power3 } from "gsap";
+import Module5Switch3 from "./Module5Switch3"
 
 class Module5Switch1 extends Component {
 	constructor() {
 		super();
 		this.state = {
 			animate: false,
-			switchComplete: false,
+         switchComplete: false,
+         module5Switch3Complete: false
       };
       this.triggerTween = new TimelineLite();
    }
@@ -34,29 +36,50 @@ class Module5Switch1 extends Component {
 			this.setState({
 				switchComplete: true,
 			});
-			this.props.handleModule5Switch1();
+         this.props.handleModule5Switch1();
+         this.props.handleModule5Switch3();
 		} else if (this.state.switchComplete) {
 			this.setState({
-				switchComplete: true,
+				switchComplete: false,
 			});
-			this.props.handleModule5Switch1();
+         this.props.handleModule5Switch1();
+         this.props.handleModule5Switch3();;
 		}
 	};
 
 	handleClick = () => {
-		this.handleSwitch();
-		if (!this.state.animate) {
-			this.setState({
-				animate: true,
-			});
-			this.switchOn();
-		} else {
-			this.setState({
-				animate: false,
-			});
-			this.switchOff();
-		}
-	};
+      if (this.state.module5Switch3Complete === true){
+         this.handleSwitch();
+         this.switchOn();
+      }  else  {
+         this.handleSwitch();
+         this.switchOff();
+      }
+		
+		// if (!this.state.animate) {
+		// 	this.setState({
+		// 		animate: true,
+		// 	});
+		// 	this.switchOn();
+		// } else {
+		// 	this.setState({
+		// 		animate: false,
+		// 	});
+		// 	this.switchOff();
+		// }
+   };
+   
+   handleModule5Switch3 = () => {
+      if (this.state.module5Switch3Complete === false) {
+            this.setState({
+            module5Switch3Complete: true
+         })
+         } else {
+            this.setState({
+            module5Switch3Complete: false
+         })
+      }
+   }
 
 	render() {
 		return (
@@ -94,6 +117,7 @@ class Module5Switch1 extends Component {
 						/>
 					</filter>
 				</defs>
+            <Module5Switch3 handleModule5Switch3={this.handleModule5Switch3}/>
 			</Fragment>
 		);
 	}

@@ -83,6 +83,7 @@ class Module5Switch3 extends Component {
          })
          this.switchUp();
       }
+      
 	};
 
 	render() {
