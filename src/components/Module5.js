@@ -58,7 +58,7 @@ class Module5 extends Component {
 		const updateSwitchArray = [...this.state.switches];
 		const switch3 = this.state.switches[2].switch3;
 		if (!switch3) {
-			const updateSwitch = { id: 3, switch2: true };
+			const updateSwitch = { id: 3, switch3: true };
 			updateSwitchArray.splice(2, 1, updateSwitch);
 			this.setState({
 				switches: updateSwitchArray,
@@ -76,7 +76,7 @@ class Module5 extends Component {
 		const updateSwitchArray = [...this.state.switches];
 		const switch4 = this.state.switches[3].switch4;
 		if (!switch4) {
-			const updateSwitch = { id: 4, switch2: true };
+			const updateSwitch = { id: 4, switch4: true };
 			updateSwitchArray.splice(3, 1, updateSwitch);
 			this.setState({
 				switches: updateSwitchArray,

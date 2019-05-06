@@ -51,11 +51,11 @@ class App extends Component {
 	handleModule5 = checkArray => {
 		if (this.state.module5 === false && checkArray === true) {
 			this.setState({
-				module2: checkArray,
+				module5: checkArray,
 			});
 		} else if (this.state.module5 === true && checkArray === false) {
 			this.setState({
-				module2: checkArray,
+				module5: checkArray,
 			});
 		}
 	};

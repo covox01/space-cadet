@@ -4,6 +4,7 @@ import Module1Switch2 from "./module1-components/Module1Switch2";
 import Module1Switch3 from "./module1-components/Module1Switch3";
 import { Back, Elastic, TimelineLite } from "gsap";
 
+
 class Module1 extends Component {
 	constructor(props) {
 		super(props);
@@ -135,7 +136,7 @@ class Module1 extends Component {
 					/>
 				</g>
 				<Module1Switch1
-					handleModule1Switch1={() => this.handleModule1Switch1()}
+               handleModule1Switch1={() => this.handleModule1Switch1()}
 				/>
 				<Module1Switch2
 					handleModule1Switch2={() => this.handleModule1Switch2()}
