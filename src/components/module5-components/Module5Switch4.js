@@ -6,30 +6,26 @@ class Module5Switch4 extends Component {
 		super();
 		this.state = {
 			animate: false,
-			completedSequence: 0,
+			completedSequence: false,
 			switchComplete: false,
       };
       this.triggerTween = new TimelineLite();
    }
 
    handleSwitch = () => {
-		if (this.state.completedSequence === 0) {
+		if (this.state.completedSequence === false) {
 			this.setState({
-				completedSequence: 1,
-			});
-		} else if (this.state.completedSequence === 1) {
+            completedSequence: true,
+            switchComplete: true,
+         });
+         this.props.handleModule5Switch4();
+		} else if (this.state.completedSequence === true) {
 			this.setState({
-				completedSequence: 2,
-				switchComplete: true,
-			});
-			this.props.handleModule5Switch4();
-		} else {
-			this.setState({
-				completedSequence: 1,
+				completedSequence: false,
 				switchComplete: false,
-			});
-			this.props.handleModule5Switch4();
-		}
+         });
+         this.props.handleModule5Switch4();
+		} 
 	};
 
    

@@ -7,7 +7,8 @@ class Module5Switch1 extends Component {
 		super();
 		this.state = {
 			animate: false,
-         switchComplete: false,
+         switch1Complete: false,
+         switch3Complete: false,
          module5Switch3Complete: false
       };
       this.triggerTween = new TimelineLite();
@@ -31,53 +32,53 @@ class Module5Switch1 extends Component {
          })
    }
 
-	handleSwitch = () => {
-		if (!this.state.switchComplete) {
-			this.setState({
-				switchComplete: true,
-			});
-         this.props.handleModule5Switch1();
-         this.props.handleModule5Switch3();
-		} else if (this.state.switchComplete) {
-			this.setState({
-				switchComplete: false,
-			});
-         this.props.handleModule5Switch1();
-         this.props.handleModule5Switch3();;
-		}
-	};
+   // handleSwitch1 = () => {
+   //    if (this.state.switch3Complete) {
+   //       this.setState({
+   //          switch1Complete: true,
+   //       })
+   //    }  else if (this.state.switch1Complete ) {
+   //       this.setState({
+   //          switch1Complete: true
+   //       })
+   //    }
+   // } 
+
+	// handleSwitch3 = () => {
+	// 	if (this.state.switch3Complete) {
+	// 		this.setState({
+	// 			switch3Complete: true,
+	// 		});
+   //       this.props.handleModule5Switch3();
+	// 	} else if (!this.state.switchComplete) {
+	// 		this.setState({
+	// 			switch3Complete: false,
+	// 		});
+   //       this.props.handleModule5Switch3();;
+	// 	}
+	// };
 
 	handleClick = () => {
-      if (this.state.module5Switch3Complete === true){
-         this.handleSwitch();
+      if (this.state.switch3Complete && !this.state.switch1Complete){
          this.switchOn();
-      }  else  {
-         this.handleSwitch();
-         this.switchOff();
-      }
-		
-		// if (!this.state.animate) {
-		// 	this.setState({
-		// 		animate: true,
-		// 	});
-		// 	this.switchOn();
-		// } else {
-		// 	this.setState({
-		// 		animate: false,
-		// 	});
-		// 	this.switchOff();
-		// }
+         this.setState({
+            switch1Complete: true
+         })
+         this.props.handleModule5Switch1();
+      } 
    };
    
    handleModule5Switch3 = () => {
-      if (this.state.module5Switch3Complete === false) {
+      if (!this.state.switch3Complete) {
             this.setState({
-            module5Switch3Complete: true
+            switch3Complete: true
          })
-         } else {
+         this.props.handleModule5Switch3();
+         } else if (this.state.switch3Complete){
             this.setState({
-            module5Switch3Complete: false
+               switch3Complete: false
          })
+         this.props.handleModule5Switch3();
       }
    }
 
