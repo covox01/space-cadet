@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Back, Elastic, TimelineLite } from "gsap";
-import { PassThrough } from "stream";
 
 class Module5Switch3 extends Component {
 	constructor() {

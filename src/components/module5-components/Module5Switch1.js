@@ -32,32 +32,6 @@ class Module5Switch1 extends Component {
          })
    }
 
-   // handleSwitch1 = () => {
-   //    if (this.state.switch3Complete) {
-   //       this.setState({
-   //          switch1Complete: true,
-   //       })
-   //    }  else if (this.state.switch1Complete ) {
-   //       this.setState({
-   //          switch1Complete: true
-   //       })
-   //    }
-   // } 
-
-	// handleSwitch3 = () => {
-	// 	if (this.state.switch3Complete) {
-	// 		this.setState({
-	// 			switch3Complete: true,
-	// 		});
-   //       this.props.handleModule5Switch3();
-	// 	} else if (!this.state.switchComplete) {
-	// 		this.setState({
-	// 			switch3Complete: false,
-	// 		});
-   //       this.props.handleModule5Switch3();;
-	// 	}
-	// };
-
 	handleClick = () => {
       if (this.state.switch3Complete && !this.state.switch1Complete){
          this.switchOn();
