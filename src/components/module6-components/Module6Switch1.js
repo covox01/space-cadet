@@ -6,31 +6,47 @@ class Module6Switch1 extends Component {
       super(props)
       this.state = {
          animate: false,
-         completedSequence: 1,
-         switchCompleted: false
+         completedSequence: 0,
+         switchComplete: false
       }
       this.triggerTween = new TimelineLite();
    }
    
+   // handleSwitch = () => {
+   //    if (this.state.completedSequence === 0 || this.state.switchComplete) {
+   //       this.setState({
+   //          completedSequence: 1,
+   //          switchComplete: false
+   //       });
+   //       this.props.handleModule6Switch1();
+   //    } else {
+   //       this.setState({
+   //          completedSequence: 2,
+   //          switchComplete: true
+   //       })
+   //       this.props.handleModule6Switch1();
+   //    }
+   // }
+
    handleSwitch = () => {
-      if (this.state.completedSequence === 0) {
-         this.setState({
-            completedSequence: 1,
-         });
-      } else if (this.state.CompletedSequence === 1) {
-         this.setState({
-            completedSequence: 2,
-            switchComplete: true
-         })
-         this.props.handleModule6Switch1();
-      } else {
-         this.setState({
-            completedSequence: 1,
-            switchComplete: false
-         })
-         this.props.handleModule6Switch1();
-      }
-   }
+		if (this.state.completedSequence === 0) {
+			this.setState({
+				completedSequence: 1,
+			});
+		} else if (this.state.completedSequence === 1) {
+			this.setState({
+				completedSequence: 2,
+				switchComplete: true,
+			});
+			this.props.handleModule6Switch1();
+		} else {
+			this.setState({
+				completedSequence: 1,
+				switchComplete: false,
+			});
+			this.props.handleModule6Switch1();
+		}
+	};
 
    switchDown = () => {
       this.triggerTween
@@ -75,6 +91,7 @@ class Module6Switch1 extends Component {
             animate: true,
          });
          this.switchUp();
+         // this.props.handleModule6Switch1();
       } else {
          this.setState({
             animate: false

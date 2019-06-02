@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Back, Elastic, TimelineLite, Power3 } from "gsap";
 import Module6Switch1 from "./module6-components/Module6Switch1"
 import Module6Switch2 from "./module6-components/Module6Switch2"
 
@@ -6,13 +7,14 @@ class Module6 extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			switches: [{ switch1: false }, { switch2: false }, { switch3: false }],
+			switches: [{ switch1: false }, { switch2: false }],
 		};
 	}
 
 	handleModule6Switch1 = () => {
 		const updateSwitchArray = [...this.state.switches];
-		const switch1 = this.state.switches[0].switch1;
+      const switch1 = this.state.switches[0].switch1;
+      // const sequence1 = this.state.switched[0].sequence1
 		if (switch1 === false) {
 			const updateSwitch = { id: 1, switch1: true };
 			updateSwitchArray.splice(0, 1, updateSwitch);
@@ -45,6 +47,41 @@ class Module6 extends Component {
 			});
 		}
 	};
+
+	moduleBorderOn = () => {
+		const borderTween = new TimelineLite();
+		borderTween
+			.to([this.border, this.filter], 0.2, {
+				fill: "#0bf7a2",
+				opacity: 0.8,
+				attr: { stdDeviation: 15 },
+				ease: Back.easeOut,
+			})
+			.delay(0.1);
+	};
+
+	moduleBorderOff = () => {
+		const borderTween = new TimelineLite();
+		borderTween.to([this.border, this.filter], 0.2, {
+			fill: "#808080",
+			opacity: 1,
+			attr: { stdDeviation: 0 },
+			ease: Back.easeOut,
+		});
+	};
+
+	componentDidUpdate() {
+		const updateSwitchArray = [...this.state.switches];
+		let checkArray = updateSwitchArray
+			.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
+			.every(x => x);
+		this.props.handleModule6(checkArray);
+		if (checkArray === true) {
+			this.moduleBorderOn();
+		} else {
+			this.moduleBorderOff();
+		}
+	}
 
 	render() {
 		return (

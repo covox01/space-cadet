@@ -6,8 +6,8 @@ class Module6Switch2 extends Component {
 		super();
 		this.state = {
          animate: false,
-         completedSequence: 1,
-         switchCompleted: false,
+         completedSequence: 0,
+         switchComplete: false,
       };
       this.triggerTween = new TimelineLite()
    }
@@ -17,26 +17,26 @@ class Module6Switch2 extends Component {
          this.setState({
             completedSequence: 1,
          });
-      } else if (this.state.CompletedSequence === 1) {
+      } else if (this.state.completedSequence === 1) {
          this.setState({
             completedSequence: 2,
-            switchComplete: true
-         })
+            switchComplete: true,
+         });
          this.props.handleModule6Switch2();
       } else {
          this.setState({
             completedSequence: 1,
-            switchComplete: false
-         })
+            switchComplete: false,
+         });
          this.props.handleModule6Switch2();
       }
-   }
+   };
 
    switchDown = () => {
       this.triggerTween
          .to(this.trigger, 0.2, {
             y: 0,
-            fill: "#efda73",
+            fill: "#ef1c00",
             ease: Back.easeInOut,
          })
          .to(this.filter, 0.2, {
@@ -45,7 +45,7 @@ class Module6Switch2 extends Component {
          }, "-=.1")
          .to([this.trigger, this.filter], 0.2, {
             attr: { stdDeviation: 20 },
-            fill: "#efda73",
+            fill: "#ef1c00",
             ease: Elastic.easeOut,
          }, "-=.1");
    }
@@ -54,7 +54,7 @@ class Module6Switch2 extends Component {
       this.triggerTween
          .to(this.trigger, 0.2, {
             y: -205,
-            fill: "#9cd3bd",
+            fill: "#efda73",
             ease: Back.easeInOut,
          })
          .to(this.filter, 0.2, {
@@ -64,7 +64,7 @@ class Module6Switch2 extends Component {
          .to([this.filter, this.trigger], 0.2, {
             attr: { stdDeviation: 20 },
             ease: Elastic.easeOut,
-            fill: "#a3e8ce"
+            fill: "#efda73"
          }, "-=.2");
    }
 

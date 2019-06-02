@@ -60,6 +60,18 @@ class App extends Component {
 		}
 	};
 
+	handleModule6 = checkArray => {
+		if (this.state.module6 === false && checkArray === true) {
+			this.setState({
+				module6: checkArray,
+			});
+		} else if (this.state.module6 === true && checkArray === false) {
+			this.setState({
+				module6: checkArray,
+			});
+		}
+	};
+
 	render() {
 		return (
 			<div className="super-container">
@@ -75,7 +87,9 @@ class App extends Component {
 					<Module5
 						handleModule5={checkArray => this.handleModule5(checkArray)}
 					/>
-					<Module6 />
+					<Module6
+						handleModule6={checkArray => this.handleModule6(checkArray)}
+					/>
 					<Module7 />
 					<Module8 />
 				</div>
