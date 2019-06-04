@@ -9,6 +9,7 @@ import Module7 from "./components/Module7";
 import Module8 from "./components/Module8";
 import "./App.css";
 import "./styles/styles.scss";
+import { timingSafeEqual } from "crypto";
 
 class App extends Component {
 	constructor() {
@@ -48,6 +49,18 @@ class App extends Component {
 		}
 	};
 
+	handleModule4 = checkArray => {
+		if (this.state.module5 === false && checkArray === true) {
+			this.setState({
+				module4: checkArray,
+			});
+		} else if (this.state.module5 === true && checkArray === false) {
+			this.setState({
+				module4: checkArray,
+			});
+		}
+	};
+
 	handleModule5 = checkArray => {
 		if (this.state.module5 === false && checkArray === true) {
 			this.setState({
@@ -83,7 +96,8 @@ class App extends Component {
 						handleModule2={checkArray => this.handleModule2(checkArray)}
 					/>
 					<Module3 />
-					<Module4 />
+					<Module4 
+						handleModule4={checkArray => this.handleModule4(checkArray)}/>
 					<Module5
 						handleModule5={checkArray => this.handleModule5(checkArray)}
 					/>

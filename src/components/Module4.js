@@ -3,6 +3,7 @@ import Module4Switch1 from "../components/module4-components/Module4Switch1.js";
 import Module4Switch2 from "../components/module4-components/Module4Switch2.js";
 import Module4Switch3 from "../components/module4-components/Module4Switch3.js";
 import Module4Monitor from "../components/module4-components/Module4Monitor.js";
+import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap"
 
 class Module4 extends Component {
 	constructor(){
@@ -50,7 +51,7 @@ class Module4 extends Component {
 		}
 	};
 
-	handleModule1Switch3 = () => {
+	handleModule4Switch3 = () => {
 		const updateSwitchArray = [...this.state.switches];
 		const switch3 = this.state.switches[2].switch3;
 		if (switch3 === false) {
@@ -90,7 +91,18 @@ class Module4 extends Component {
 			})
 	};
 
-
+	componentDidUpdate() {
+		const updateSwitchArray = [...this.state.switches];
+		let checkArray = updateSwitchArray
+			.reduce((arr, obj) => [...arr, ...Object.values(obj)], [])
+			.every(x => x);
+		this.props.handleModule4(checkArray);
+		if (checkArray === true) {
+			this.moduleBorderOn();
+		} else {
+			this.moduleBorderOff();
+		}
+	}
 
 	render() {
 		return (
@@ -109,13 +121,6 @@ class Module4 extends Component {
 						d="M666.4,6.1c0-3.2-2.6-5.8-5.8-5.8H300c-3.2,0-5.8,2.6-5.8,5.8v548.8c0,3.2,2.6,5.8,5.8,5.8h360.5 c3.2,0,5.8-2.6,5.8-5.8V6.1z M663.7,554.9c0,1.7-1.4,3.1-3.1,3.1H300c-1.7,0-3.1-1.4-3.1-3.1V6.1c0-1.7,1.4-3.1,3.1-3.1h360.5 c1.7,0,3.1,1.4,3.1,3.1V554.9z"
 					/>
 				</g>
-
-				<Module4Monitor />
-				<Module4Switch1 
-					handleModule4Switch1={() => this.handleModule4Switch1()}/>
-				<Module4Switch2 
-					handleModule4Switc2={() => this.handleModule4Switc2()}/>
-				<Module4Switch3 />
 				
 				<polyline
 					id="am4-graph-2"
@@ -133,6 +138,13 @@ class Module4 extends Component {
 					strokeMiterlimit="10"
 					points="323.7,149.7 401.3,149.7 547.7,149.7 631.6,149.7"
 				/>
+
+				<Module4Monitor />
+				<Module4Switch1 
+					handleModule4Switch1={() => this.handleModule4Switch1()}/>
+				<Module4Switch2 
+					handleModule4Switch2={() => this.handleModule4Switc2()}/>
+				<Module4Switch3 />
 			</svg>
 		);
 	}

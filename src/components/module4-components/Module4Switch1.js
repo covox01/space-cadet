@@ -100,7 +100,7 @@ class Module4Switch1 extends Component {
                 />
             </g>
             <defs>
-                <filter id="module4-switch1" x="-2" y="-.8" width="400%" height="300%">
+                <filter id="module4-switch1" x="-2" y="-.8" width="300%" height="300%">
                     <feOffset in="SourceGraphic" dx="0" dy="0" />
                     <feGaussianBlur
                         ref={filter => (this.filter = filter)}
