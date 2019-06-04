@@ -1,6 +1,97 @@
 import React, { Component } from "react";
+import Module4Switch1 from "../components/module4-components/Module4Switch1.js";
+import Module4Switch2 from "../components/module4-components/Module4Switch2.js";
+import Module4Switch3 from "../components/module4-components/Module4Switch3.js";
+import Module4Monitor from "../components/module4-components/Module4Monitor.js";
 
 class Module4 extends Component {
+	constructor(){
+		super()
+		this.state = [
+			{switch1: false},
+			{switch2: false},
+			{switch3: false}
+		]
+	}
+
+	handleModule4Switch1 = () => {
+		const updateSwitchArray = [...this.state.switches];
+		const switch1 = this.state.switches[0].switch1;
+		if (switch1 === false) {
+			const updateSwitch = { id: 1, switch1: true };
+			updateSwitchArray.splice(0, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		} else if (switch1 === true) {
+			const updateSwitch = { switch1: false };
+			updateSwitchArray.splice(0, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		}
+	};
+
+	handleModule4Switch2 = () => {
+		const updateSwitchArray = [...this.state.switches];
+		const switch2 = this.state.switches[1].switch2;
+		if (switch2 === false) {
+			const updateSwitch = { id: 2, switch2: true };
+			updateSwitchArray.splice(1, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		} else if (switch2 === true) {
+			const updateSwitch = { switch2: false };
+			updateSwitchArray.splice(1, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		}
+	};
+
+	handleModule1Switch3 = () => {
+		const updateSwitchArray = [...this.state.switches];
+		const switch3 = this.state.switches[2].switch3;
+		if (switch3 === false) {
+			const updateSwitch = { id: 3, switch3: true };
+			updateSwitchArray.splice(2, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		} else if (switch3 === true) {
+			const updateSwitch = { switch3: false };
+			updateSwitchArray.splice(2, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		}
+	};
+
+	moduleBorderOn = () => {
+		const borderTween = new TimelineLite();
+		borderTween
+			.to([this.border, this.filter], 0.2, {
+				fill: "#0bf7a2",
+            attr: { stdDeviation: 15 },
+            ease: Back.easeOut,
+			})
+			.delay(0.1);
+	};
+
+	moduleBorderOff = () => {
+		const borderTween = new TimelineLite();
+		borderTween
+			.to([this.border, this.filter], 0.2, {
+				fill: "#808080",
+				opacity: 1,
+            attr: { stdDeviation: 0 },
+            ease: Back.easeOut
+			})
+	};
+
+
+
 	render() {
 		return (
 			<svg
@@ -18,49 +109,14 @@ class Module4 extends Component {
 						d="M666.4,6.1c0-3.2-2.6-5.8-5.8-5.8H300c-3.2,0-5.8,2.6-5.8,5.8v548.8c0,3.2,2.6,5.8,5.8,5.8h360.5 c3.2,0,5.8-2.6,5.8-5.8V6.1z M663.7,554.9c0,1.7-1.4,3.1-3.1,3.1H300c-1.7,0-3.1-1.4-3.1-3.1V6.1c0-1.7,1.4-3.1,3.1-3.1h360.5 c1.7,0,3.1,1.4,3.1,3.1V554.9z"
 					/>
 				</g>
-				<g id="am4-monitor">
-					<path
-						fill="#212121"
-						d="M635.1,39.5c0-2.5-2-4.5-4.5-4.5H325.5c-2.5,0-4.5,2-4.5,4.5v200.8c0,2.5,2,4.5,4.5,4.5h305.2 c2.5,0,4.5-2,4.5-4.5V39.5z"
-					/>
-					<path
-						fill="gray"
-						d="M637.8,39.5c0-3.9-3.2-7.1-7.1-7.1H325.5c-3.9,0-7.1,3.2-7.1,7.1v200.8c0,3.9,3.2,7.1,7.1,7.1h305.2 c3.9,0,7.1-3.2,7.1-7.1V39.5z M635.1,240.3c0,2.5-2,4.5-4.5,4.5H325.5c-2.5,0-4.5-2-4.5-4.5V39.5c0-2.5,2-4.5,4.5-4.5h305.2 c2.5,0,4.5,2,4.5,4.5V240.3z"
-					/>
-				</g>
-				<g id="am4-switch-3">
-					<path
-						fill="#282828"
-						d="M580,528.1L580,528.1c-26.5,0-48-21.5-48-48V353.8c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48V480 C628,506.6,606.5,528.1,580,528.1z"
-					/>
-					<path
-						fill="gray"
-						d="M580.3,326.2c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3 C614.5,341.5,599.2,326.2,580.3,326.2z"
-						id="am4-trigger-3"
-					/>
-				</g>
-				<g id="am4-switch-2">
-					<path
-						fill="#282828"
-						d="M453.5,528.1L453.5,528.1c-26.5,0-48-21.5-48-48V353.8c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48V480 C501.6,506.6,480,528.1,453.5,528.1z"
-					/>
-					<path
-						fill="gray"
-						d="M453.9,326.2c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3 C488.2,341.5,472.7,326.2,453.9,326.2z"
-						id="am4-trigger-2"
-					/>
-				</g>
-				<g id="am4-switch-1">
-					<path
-						fill="#282828"
-						d="M361.4,489H336c-2.6,0-4.6-2.1-4.6-4.6v-136c0-2.4,2-4.5,4.5-4.5h25.8c2.4,0,4.5,2,4.5,4.5v135.9 C366,486.8,363.9,489,361.4,489z"
-					/>
-					<path
-						id="am4-trigger-1"
-						fill="#656565"
-						d="M331.3,345.6v69.6c0,1.4,1.2,2.7,2.7,2.7h29.5c1.4,0,2.7-1.2,2.7-2.7v-69.6 c0-1.4-1.2-2.7-2.7-2.7H334C332.4,343,331.3,344.2,331.3,345.6z"
-					/>
-				</g>
+
+				<Module4Monitor />
+				<Module4Switch1 
+					handleModule4Switch1={() => this.handleModule4Switch1()}/>
+				<Module4Switch2 
+					handleModule4Switc2={() => this.handleModule4Switc2()}/>
+				<Module4Switch3 />
+				
 				<polyline
 					id="am4-graph-2"
 					fill="none"
