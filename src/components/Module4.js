@@ -8,11 +8,13 @@ import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap"
 class Module4 extends Component {
 	constructor(){
 		super()
-		this.state = [
-			{switch1: false},
-			{switch2: false},
-			{switch3: false}
-		]
+		this.state = {
+			switches: [
+				{switch1: false}, 
+				{switch2: false},
+				{switch3: false}
+			]
+		}
 	}
 
 	handleModule4Switch1 = () => {

@@ -13,29 +13,25 @@ class Module4Switch1 extends Component {
     }
 
     handleSwitch = () => {
-		if (this.state.completedSequence === 0) {
+		if (!this.state.switchComplete) {
 			this.setState({
-				completedSequence: 1,
-			});
-		} else if (this.state.completedSequence === 1) {
+                completedSequence: 1,
+                switchComplete: true,
+            });
+            this.props.handleModule4Switch1();
+		} else {
 			this.setState({
 				completedSequence: 2,
 				switchComplete: true,
 			});
 			this.props.handleModule4Switch1();
-		} else {
-			this.setState({
-				completedSequence: 1,
-				switchComplete: false,
-			});
-			this.props.handleModule4Switch1();
-		}
+		} 
 	};
 
     switchDown = () => {
       this.triggerTween
          .to(this.trigger, 0.2, {
-            y: 140,
+            y: 80,
             fill: "#efda73",
             ease: Back.easeInOut,
          })
@@ -100,7 +96,7 @@ class Module4Switch1 extends Component {
                 />
             </g>
             <defs>
-                <filter id="module4-switch1" x="-2" y="-.8" width="300%" height="300%">
+                <filter id="module4-switch1" x="-1" y="-.8" width="500%" height="300%">
                     <feOffset in="SourceGraphic" dx="0" dy="0" />
                     <feGaussianBlur
                         ref={filter => (this.filter = filter)}
