@@ -12,19 +12,107 @@ class Module4Switch2 extends Component {
         this.triggerTween = new TimelineLite();
     }
 
+    handleSwitch = () => {
+		if (!this.state.switchComplete) {
+			this.setState({
+                completedSequence: 1,
+                switchComplete: true,
+            });
+            this.props.handleModule4Switch2();
+		} else {
+			this.setState({
+				completedSequence: 2,
+				switchComplete: true,
+			});
+			this.props.handleModule4Switch2();
+		} 
+	};
+    
+   switchDown = () => {
+   this.triggerTween
+      .to(this.trigger, 0.2, {
+         y: 115,
+         fill: "#efda73",
+         ease: Back.easeInOut,
+      })
+      .to(this.filter, 0.2, {
+         attr: { stdDeviation: 15 },
+         ease: Elastic.easeOut
+      }, "-=.1")
+      .to([this.trigger, this.filter], 0.2, {
+         attr: { stdDeviation: 20 },
+         fill: "#efda73",
+         ease: Elastic.easeOut,
+      }, "-=.1");
+   }
+
+   switchUp = () => {
+      this.triggerTween
+         .to(this.trigger, 0.2, {
+            y: 0,
+            fill: "#9cd3bd",
+            ease: Back.easeInOut,
+         })
+         .to(this.filter, 0.2, {
+            attr: { stdDeviation: 15 },
+            ease: Elastic.easeOut,
+         }, "-=.1")
+         .to([this.filter, this.trigger], 0.2, {
+            attr: { stdDeviation: 20 },
+            ease: Elastic.easeOut,
+            fill: "#a3e8ce"
+         }, "-=.2");
+   }
+
+    handleClick = () => {
+        this.handleSwitch();
+        if(!this.state.animate) {
+            this.setState({
+                animate: true
+            })
+            this.switchDown();
+        } else {
+            this.setState({
+                animate: false
+            })
+            this.switchUp();
+        }
+    }
+
     render() {
         return(
-            <g id="am4-switch-2">
-                <path
-                    fill="#282828"
-                    d="M453.5,528.1L453.5,528.1c-26.5,0-48-21.5-48-48V353.8c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48V480 C501.6,506.6,480,528.1,453.5,528.1z"
-                />
-                <path
-                    fill="gray"
-                    d="M453.9,326.2c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3 C488.2,341.5,472.7,326.2,453.9,326.2z"
-                    id="am4-trigger-2"
-                />
-            </g>
+            <Fragment>
+                <g id="am4-switch-2" onClick={() => this.handleClick()}>
+                    <path
+                        fill="#282828"
+                        d="M453.5,528.1L453.5,528.1c-26.5,0-48-21.5-48-48V353.8c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48V480 C501.6,506.6,480,528.1,453.5,528.1z"
+                    />
+                    <path
+                        ref={path => (this.trigger = path)}
+                        filter="url(#module4-switch2)"
+                        fill="gray"
+                        d="M453.9,326.2c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3 C488.2,341.5,472.7,326.2,453.9,326.2z"
+                        id="am4-trigger-2"
+                    />
+                </g>
+                <defs>
+                    <filter id="module4-switch2" x="-1" y="-.8" width="500%" height="300%">
+                        <feOffset in="SourceGraphic" dx="0" dy="0" />
+                        <feGaussianBlur
+                            ref={filter => (this.filter = filter)}
+                            result="blurOut"
+                            in="offOut"
+                            stdDeviation="0"
+                        />
+                        <feBlend
+                            in="SourceGraphic"
+                            in2="blurOut"
+                            mode="normal"
+                            opacity="0"
+                        />
+                    </filter>
+                </defs>
+            </Fragment>
         )
     }
 }

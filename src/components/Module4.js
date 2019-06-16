@@ -145,8 +145,9 @@ class Module4 extends Component {
 				<Module4Switch1 
 					handleModule4Switch1={() => this.handleModule4Switch1()}/>
 				<Module4Switch2 
-					handleModule4Switch2={() => this.handleModule4Switc2()}/>
-				<Module4Switch3 />
+					handleModule4Switch2={() => this.handleModule4Switch2()}/>
+				<Module4Switch3 
+					handleModule4Switch3={() => this.handleModule4Switch3()}/>
 			</svg>
 		);
 	}
