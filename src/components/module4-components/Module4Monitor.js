@@ -37,6 +37,18 @@ class Module4Monitor extends Component {
       morphSVG: this.graph1Mid,
       ease: Power4.easeInOut,
       visibility: "visible",
+      stroke: "red"
+   })
+   .to([this.graph1Start], 0.3, {
+      morphSVG: this.graph1End,
+      ease: Power4.easeInOut,
+      stroke: "yellow"
+   })
+   .to([this.graph1Start], 0.3, {
+      morphSVG: this.graph1Mid,
+      ease: Power4.easeInOut,
+      visibility: "visible",
+      stroke: "red"
    })
    .to([this.graph1Start], 0.3, {
       morphSVG: this.graph1End,
