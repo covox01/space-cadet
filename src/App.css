@@ -8,3 +8,9 @@
    -webkit-filter: drop-shadow(10px 10px 14px rgba(50,100,200,0.8));
    filter: drop-shadow(10px 10px 14px rgba(50,100,200,0.8));
 }
+
+#am4-graph-1-mid,
+#am4-graph-1-start,
+#am4-graph-1-end {
+   visibility: hidden
+}

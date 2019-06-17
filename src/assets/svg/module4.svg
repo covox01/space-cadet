@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="module4" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 372.1 560.4" enable-background="new 0 0 372.1 560.4" xml:space="preserve">
+	 viewBox="0 0 372.1 560.4" style="enable-background:new 0 0 372.1 560.4;" xml:space="preserve">
 <g id="am4-bg_1_">
-	<path fill="#3F4040" d="M369.5,5.8c0-1.7-1.4-3.1-3.1-3.1H5.8c-1.7,0-3.1,1.4-3.1,3.1v548.8c0,1.7,1.4,3.1,3.1,3.1h360.5
+	<path style="fill:#3F4040;" d="M369.5,5.8c0-1.7-1.4-3.1-3.1-3.1H5.8c-1.7,0-3.1,1.4-3.1,3.1v548.8c0,1.7,1.4,3.1,3.1,3.1h360.5
 		c1.7,0,3.1-1.4,3.1-3.1V5.8H369.5z"/>
-	<path fill="#808080" d="M372.2,5.8c0-3.2-2.6-5.8-5.8-5.8H5.8C2.6,0,0,2.6,0,5.8v548.8c0,3.2,2.6,5.8,5.8,5.8h360.5
+	<path style="fill:#808080;" d="M372.2,5.8c0-3.2-2.6-5.8-5.8-5.8H5.8C2.6,0,0,2.6,0,5.8v548.8c0,3.2,2.6,5.8,5.8,5.8h360.5
 		c3.2,0,5.8-2.6,5.8-5.8V5.8H372.2z M369.5,554.6c0,1.7-1.4,3.1-3.1,3.1H5.8c-1.7,0-3.1-1.4-3.1-3.1V5.8c0-1.7,1.4-3.1,3.1-3.1
 		h360.5c1.7,0,3.1,1.4,3.1,3.1v548.8H369.5z"/>
 </g>
 <g id="am4-monitor">
-	<path fill="#212121" d="M340.9,39.2c0-2.5-2-4.5-4.5-4.5H31.3c-2.5,0-4.5,2-4.5,4.5V240c0,2.5,2,4.5,4.5,4.5h305.2
+	<path style="fill:#212121;" d="M340.9,39.2c0-2.5-2-4.5-4.5-4.5H31.3c-2.5,0-4.5,2-4.5,4.5V240c0,2.5,2,4.5,4.5,4.5h305.2
 		c2.5,0,4.5-2,4.5-4.5V39.2H340.9z"/>
-	<path fill="#808080" d="M343.6,39.2c0-3.9-3.2-7.1-7.1-7.1H31.3c-3.9,0-7.1,3.2-7.1,7.1V240c0,3.9,3.2,7.1,7.1,7.1h305.2
+	<path style="fill:#808080;" d="M343.6,39.2c0-3.9-3.2-7.1-7.1-7.1H31.3c-3.9,0-7.1,3.2-7.1,7.1V240c0,3.9,3.2,7.1,7.1,7.1h305.2
 		c3.9,0,7.1-3.2,7.1-7.1V39.2z M340.9,240c0,2.5-2,4.5-4.5,4.5H31.3c-2.5,0-4.5-2-4.5-4.5V39.2c0-2.5,2-4.5,4.5-4.5h305.2
 		c2.5,0,4.5,2,4.5,4.5V240H340.9z"/>
 </g>
 <g id="am4-switch-3_1_">
-	<path fill="#282828" d="M285.8,527.8L285.8,527.8c-26.5,0-48-21.5-48-48V353.5c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48
-		v126.2C333.8,506.3,312.3,527.8,285.8,527.8z"/>
+	<path style="fill:#282828;" d="M285.8,527.8L285.8,527.8c-26.5,0-48-21.5-48-48V353.5c0-26.5,21.5-48,48-48l0,0
+		c26.5,0,48,21.5,48,48v126.2C333.8,506.3,312.3,527.8,285.8,527.8z"/>
 	<g id="am4-trigger-3_1_">
-		<path fill="#808080" d="M286.1,325.9c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3
+		<path style="fill:#808080;" d="M286.1,325.9c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3
 			C320.3,341.2,305,325.9,286.1,325.9z"/>
 	</g>
 </g>
 <g id="am4-switch-2_1_">
-	<path fill="#282828" d="M159.3,527.8L159.3,527.8c-26.5,0-48-21.5-48-48V353.5c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48
-		v126.2C207.4,506.3,185.8,527.8,159.3,527.8z"/>
+	<path style="fill:#282828;" d="M159.3,527.8L159.3,527.8c-26.5,0-48-21.5-48-48V353.5c0-26.5,21.5-48,48-48l0,0
+		c26.5,0,48,21.5,48,48v126.2C207.4,506.3,185.8,527.8,159.3,527.8z"/>
 	<g id="am4-trigger-2_1_">
-		<path fill="#808080" d="M159.7,325.9c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3
+		<path style="fill:#808080;" d="M159.7,325.9c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3
 			C194,341.2,178.5,325.9,159.7,325.9z"/>
 	</g>
 </g>
 <g id="am4-switch-1">
-	<path fill="#282828" d="M67.2,488.7H41.8c-2.6,0-4.6-2.1-4.6-4.6v-136c0-2.4,2-4.5,4.5-4.5h25.8c2.4,0,4.5,2,4.5,4.5V484
+	<path style="fill:#282828;" d="M67.2,488.7H41.8c-2.6,0-4.6-2.1-4.6-4.6v-136c0-2.4,2-4.5,4.5-4.5h25.8c2.4,0,4.5,2,4.5,4.5V484
 		C71.8,486.5,69.7,488.7,67.2,488.7z"/>
-	<path id="am4-trigger-1" fill="#656565" d="M37.1,345.3v69.6c0,1.4,1.2,2.7,2.7,2.7h29.5c1.4,0,2.7-1.2,2.7-2.7v-69.6
+	<path id="am4-trigger-1" style="fill:#656565;" d="M37.1,345.3v69.6c0,1.4,1.2,2.7,2.7,2.7h29.5c1.4,0,2.7-1.2,2.7-2.7v-69.6
 		c0-1.4-1.2-2.7-2.7-2.7H39.8C38.2,342.7,37.1,343.9,37.1,345.3z"/>
 </g>
-<path id="am4-graph-1-end" fill="none" stroke="#808080" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="
+<path id="am4-graph-1-end" style="fill:none;stroke:#808080;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" d="
 	M29.5,140.8c0,0,18.7,39.6,77.6,39.6s93.9-87,150.9-87s79.4,47.4,79.4,47.4"/>
-<path id="am4-graph-1-mid" fill="none" stroke="#808080" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" d="
+<path id="am4-graph-1-mid" style="fill:none;stroke:#808080;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" d="
 	M29.5,140.8c0,0,22.1-47.4,81.8-47.4s83.4,87,150.8,87c44.5,0,75.3-39.6,75.3-39.6"/>
-<polyline id="am4-graph-1-start" fill="none" stroke="#808080" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" points="
-	29.5,140.8 107.1,140.8 253.5,140.8 337.4,140.8 "/>
-<line id="am4-graph-2-1_1_" fill="none" stroke="#17FFFB" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="27" y1="66.1" x2="341" y2="66.1"/>
-<line id="am4-graph-2-2_1_" fill="none" stroke="#FFE600" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="27" y1="140.8" x2="341" y2="140.8"/>
-<line id="am4-graph-2-3_1_" fill="none" stroke="#FF3E3E" stroke-width="3" stroke-linecap="round" stroke-miterlimit="10" x1="27" y1="215.5" x2="341" y2="215.5"/>
+<line id="am4-graph-1-start" style="fill:none;stroke:#808080;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" x1="29.5" y1="139.6" x2="337.4" y2="139.6"/>
+<line id="am4-graph-2-1_1_" style="fill:none;stroke:#17FFFB;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" x1="27" y1="66.1" x2="341" y2="66.1"/>
+<line id="am4-graph-2-2_1_" style="fill:none;stroke:#FFE600;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" x1="27" y1="137.7" x2="341" y2="137.7"/>
+<line id="am4-graph-2-3_1_" style="fill:none;stroke:#FF3E3E;stroke-width:3;stroke-linecap:round;stroke-miterlimit:10;" x1="27" y1="215.5" x2="341" y2="215.5"/>
 </svg>
