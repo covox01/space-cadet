@@ -5,6 +5,7 @@ import {
   TimelineMax,
   Elastic,
   TweenMax,
+  Power4
 } from "gsap";
 import MorphSVGPlugin from "../../MorphSVGPlugin";
 import MonitorAnimations from "../module4-components/MonitorAnimations"
@@ -28,18 +29,22 @@ class Module4Monitor extends Component {
    console.log("This Works");
    this.morphSVG = MorphSVGPlugin
    this.morphTween = new TimelineMax();
-   this.morphSVG.convertToPath(this.graph1Start)
+   this.morphSVG.convertToPath("polyline, line")
    //  ------- Return
 
    this.morphTween
-   .to([this.graph1Mid], 0.5, {
-      morphSVG: this.graph1End,
-      ease: Back.easeInOut,
+   .to([this.graph1Start], 0.3, {
+      morphSVG: this.graph1Mid,
+      ease: Power4.easeInOut,
       visibility: "visible",
    })
-   .to([this.graph1Mid], 0.5, {
-      morphSVG: this.graph1Mid,
-      ease: Back.easeInOut,
+   .to([this.graph1Start], 0.3, {
+      morphSVG: this.graph1End,
+      ease: Power4.easeInOut,
+   })
+   .to([this.graph1Start], 0.5, {
+      morphSVG: this.graph1Start,
+      ease: Power4.easeInOut,
    })
 
    // .to([this.graph1Mid], 0.5, {
@@ -64,7 +69,7 @@ class Module4Monitor extends Component {
          </g>
          <path
             ref={path => (this.graph1Start = path)}
-            id="am4-graph-1-mid"
+            id="am4-graph-1-start"
             fill="none"
             stroke="gray"
             strokeWidth="3"
