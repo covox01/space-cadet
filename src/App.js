@@ -9,7 +9,7 @@ import Module7 from "./components/Module7";
 import Module8 from "./components/Module8";
 import "./App.css";
 import "./styles/styles.scss";
-import { timingSafeEqual } from "crypto";
+
 
 class App extends Component {
 	constructor() {

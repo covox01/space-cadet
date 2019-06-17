@@ -82,19 +82,18 @@ class Module4Switch2 extends Component {
     render() {
         return(
             <Fragment>
-                <g id="am4-switch-2" onClick={() => this.handleClick()}>
-                    <path
-                        fill="#282828"
-                        d="M453.5,528.1L453.5,528.1c-26.5,0-48-21.5-48-48V353.8c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48V480 C501.6,506.6,480,528.1,453.5,528.1z"
-                    />
-                    <path
-                        ref={path => (this.trigger = path)}
-                        filter="url(#module4-switch2)"
-                        fill="gray"
-                        d="M453.9,326.2c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3 C488.2,341.5,472.7,326.2,453.9,326.2z"
-                        id="am4-trigger-2"
-                    />
-                </g>
+               <g id='am4-switch-2' onClick={() => this.handleClick()}>
+                  <path 
+                     fill='#282828' 
+                     d='M159.3,527.8L159.3,527.8c-26.5,0-48-21.5-48-48V353.5c0-26.5,21.5-48,48-48l0,0c26.5,0,48,21.5,48,48 v126.2C207.4,506.3,185.8,527.8,159.3,527.8z'
+                  />
+                  <path
+                     ref={path => (this.trigger = path)}
+                     filter="url(#module4-switch2)"
+                     fill='gray' 
+                     d='M159.7,325.9c-18.9,0-34.3,15.3-34.3,34.3c0,18.9,15.3,34.3,34.3,34.3s34.3-15.3,34.3-34.3 C194,341.2,178.5,325.9,159.7,325.9z'
+                     id='am4-trigger-2' />
+               </g>
                 <defs>
                     <filter id="module4-switch2" x="-1" y="-.8" width="500%" height="300%">
                         <feOffset in="SourceGraphic" dx="0" dy="0" />

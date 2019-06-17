@@ -82,18 +82,18 @@ class Module4Switch1 extends Component {
     render() {
         return(
         <Fragment>
-            <g id="am4-switch-1" onClick={() => this.handleClick()}>
-                <path
-                    fill="#282828"
-                    d="M361.4,489H336c-2.6,0-4.6-2.1-4.6-4.6v-136c0-2.4,2-4.5,4.5-4.5h25.8c2.4,0,4.5,2,4.5,4.5v135.9 C366,486.8,363.9,489,361.4,489z"
-                />
-                <path
-                    ref={path => (this.trigger = path)}
-                    filter="url(#module4-switch1)"
-                    id="am4-trigger-1"
-                    fill="#656565"
-                    d="M331.3,345.6v69.6c0,1.4,1.2,2.7,2.7,2.7h29.5c1.4,0,2.7-1.2,2.7-2.7v-69.6 c0-1.4-1.2-2.7-2.7-2.7H334C332.4,343,331.3,344.2,331.3,345.6z"
-                />
+            <g id='am4-switch-1' onClick={() => this.handleClick()}>
+            <path 
+                fill='#282828' 
+                d='M67.2,488.7H41.8c-2.6,0-4.6-2.1-4.6-4.6v-136c0-2.4,2-4.5,4.5-4.5h25.8c2.4,0,4.5,2,4.5,4.5V484 C71.8,486.5,69.7,488.7,67.2,488.7z'
+            />
+            <path 
+                ref={path => (this.trigger = path)}
+                filter="url(#module4-switch1)"
+                id='am4-trigger-1' 
+                fill='#656565' 
+                d='M37.1,345.3v69.6c0,1.4,1.2,2.7,2.7,2.7h29.5c1.4,0,2.7-1.2,2.7-2.7v-69.6 c0-1.4-1.2-2.7-2.7-2.7H39.8C38.2,342.7,37.1,343.9,37.1,345.3z'
+            />
             </g>
             <defs>
                 <filter id="module4-switch1" x="-1" y="-.8" width="500%" height="300%">
