@@ -30,8 +30,10 @@ class Module4Monitor extends Component {
    this.morphSVG = MorphSVGPlugin
    this.morphTween = new TimelineMax();
    this.morphSVG.convertToPath("polyline, line")
-   // TweenMax.set(["am4-graph-1-mid", this.filter2], {opacity: 1, stroke: "#a3e8ce"})
+   // TweenMax.set([this], {opacity: 1, stroke: "#a3e8ce"})
    // TweenMax.set([this.filter2], {
+   //    opacity: 1,
+   //    visibility: "visible",
    //    attr: { stdDeviation: 20}})
 
    this.morphTween
@@ -40,10 +42,13 @@ class Module4Monitor extends Component {
       ease: Elastic.easeInOut,
       opacity: 1,
       stroke: "#a3e8ce",
+      visibility: "visible",
+      attr: {filter: "url(#monitor-start)"}
    })
    .to([this.graph1Start], 0.3, {
       morphSVG: this.graph1Start,
       ease: Elastic.easeInOut,
+      attr: {filter: "url(#monitor-start)"}
    })
    .to([this.graph1Start], 0.3, {
       morphSVG: this.graph1End,
@@ -53,7 +58,8 @@ class Module4Monitor extends Component {
       morphSVG: this.graph1Start,
       ease: Elastic.easeInOut,
       stroke: "#a3e8ce",
-      // opacity: 0.5,
+      attr: {filter: null},
+      opacity: .5
    })
   };
 
@@ -103,7 +109,7 @@ class Module4Monitor extends Component {
 {/* ----- Animation Mid ----- */}
          <path
             ref={path => (this.graph1Mid = path)}
-            filter="url(#monitor-mid)"
+            // filter="url(#monitor-mid)"
             id="am4-graph-1-mid"
             fill="none"
             stroke="#a3e8ce"
@@ -112,7 +118,7 @@ class Module4Monitor extends Component {
             strokeMiterlimit="10"
             d="M29.5,140.8c0,0,22.1-47.4,81.8-47.4s83.4,87,150.8,87c44.5,0,75.3-39.6,75.3-39.6"
          />
-         <defs>
+         {/* <defs>
             <filter id="monitor-mid" x="-1" y="-.8" width="500%" height="300%">
                <feOffset in="SourceGraphic" dx="0" dy="0" />
                <feGaussianBlur
@@ -128,7 +134,7 @@ class Module4Monitor extends Component {
                   opacity="0"
                />
             </filter>
-         </defs>
+         </defs> */}
 {/* ----- Animation End ----- */}
          <path
             ref={path => this.graph1End = path}
