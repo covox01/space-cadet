@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap"
+import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap";
+import MorphSVGPlugin from "../module4-components/MonitorAnimations";
 
 class Module4Switch1 extends Component {
     constructor(props){
@@ -10,6 +11,7 @@ class Module4Switch1 extends Component {
             switchComplete: false
         };
         this.triggerTween = new TimelineLite();
+        this.morphSVG = MorphSVGPlugin
     }
 
     handleSwitch = () => {

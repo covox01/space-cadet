@@ -23,19 +23,10 @@ class Module4Monitor extends Component {
   }
 
   handleClick = () => {
-   // this.setState({
-   //    monitorClicked: true
-   // })
    console.log("This Works");
    this.morphSVG = MorphSVGPlugin
    this.morphTween = new TimelineMax();
    this.morphSVG.convertToPath("polyline, line")
-   // TweenMax.set([this], {opacity: 1, stroke: "#a3e8ce"})
-   // TweenMax.set([this.filter2], {
-   //    opacity: 1,
-   //    visibility: "visible",
-   //    attr: { stdDeviation: 20}})
-
    this.morphTween
    .to([this.graph1Start], 0.3, {
       morphSVG: this.graph1Mid,
@@ -109,7 +100,6 @@ class Module4Monitor extends Component {
 {/* ----- Animation Mid ----- */}
          <path
             ref={path => (this.graph1Mid = path)}
-            // filter="url(#monitor-mid)"
             id="am4-graph-1-mid"
             fill="none"
             stroke="#a3e8ce"
@@ -118,23 +108,6 @@ class Module4Monitor extends Component {
             strokeMiterlimit="10"
             d="M29.5,140.8c0,0,22.1-47.4,81.8-47.4s83.4,87,150.8,87c44.5,0,75.3-39.6,75.3-39.6"
          />
-         {/* <defs>
-            <filter id="monitor-mid" x="-1" y="-.8" width="500%" height="300%">
-               <feOffset in="SourceGraphic" dx="0" dy="0" />
-               <feGaussianBlur
-                  ref={filter => (this.filter2 = filter)}
-                  result="blurOut"
-                  in="offOut"
-                  stdDeviation="20"
-               />
-               <feBlend
-                  in="SourceGraphic"
-                  in2="blurOut"
-                  mode="normal"
-                  opacity="0"
-               />
-            </filter>
-         </defs> */}
 {/* ----- Animation End ----- */}
          <path
             ref={path => this.graph1End = path}
