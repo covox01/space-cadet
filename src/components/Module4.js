@@ -30,7 +30,7 @@ class Module4 extends Component {
 			const updateSwitch = { switch1: false };
 			updateSwitchArray.splice(0, 1, updateSwitch);
 			this.setState({
-				switches: updateSwitchArray,
+				switches: updateSwitchArray, 
 			});
 		}
 	};
