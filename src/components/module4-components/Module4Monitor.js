@@ -41,17 +41,17 @@ class Module4Monitor extends Component {
       ease: Elastic.easeInOut,
       attr: {filter: "url(#monitor-start)"}
    })
-   .to([this.graph1Start], 0.3, {
-      morphSVG: this.graph1End,
-      ease: Elastic.easeInOut,
-   })
-   .to([this.graph1Start], 0.3, {
-      morphSVG: this.graph1Start,
-      ease: Elastic.easeInOut,
-      stroke: "#a3e8ce",
-      attr: {filter: null},
-      opacity: .5
-   })
+   // .to([this.graph1Start], 0.3, {
+   //    morphSVG: this.graph1End,
+   //    ease: Elastic.easeInOut,
+   // })
+   // .to([this.graph1Start], 0.3, {
+   //    morphSVG: this.graph1Start,
+   //    ease: Elastic.easeInOut,
+   //    stroke: "#a3e8ce",
+   //    attr: {filter: null},
+   //    opacity: .5
+   // })
   };
 
   render() {
@@ -69,7 +69,7 @@ class Module4Monitor extends Component {
          </g>
 
 {/* ----- Animation Start ----- */}
-         <path
+         {/* <path
             ref={path => (this.graph1Start = path)}
             filter="url(#monitor-start)"
             id="am4-graph-1-start"
@@ -79,8 +79,8 @@ class Module4Monitor extends Component {
             strokeLinecap="round"
             strokeMiterlimit="10"
             d="M29.5,140.8 107.1,140.8 253.5,140.8 337.4,140.8"
-         />
-         <defs>
+         /> */}
+         {/* <defs>
             <filter id="monitor-start" x="-1" y="-.8" width="500%" height="300%">
                <feOffset in="SourceGraphic" dx="0" dy="0" />
                <feGaussianBlur
@@ -96,7 +96,7 @@ class Module4Monitor extends Component {
                   opacity="1"
                />
             </filter>
-         </defs>
+         </defs> */}
 {/* ----- Animation Mid ----- */}
          <path
             ref={path => (this.graph1Mid = path)}
@@ -120,23 +120,6 @@ class Module4Monitor extends Component {
             strokeMiterlimit="10"
             d="M29.5,140.8c0,0,18.7,39.6,77.6,39.6s93.9-87,150.9-87s79.4,47.4,79.4,47.4"
          />
-         {/* <defs>
-            <filter id="monitor-end" x="-1" y="-.8" width="500%" height="300%">
-               <feOffset in="SourceGraphic" dx="0" dy="0" />
-               <feGaussianBlur
-                  ref={filter => (this.filter3 = filter)}
-                  result="blurOut"
-                  in="offOut"
-                  stdDeviation="20"
-               />
-               <feBlend
-                  in="SourceGraphic"
-                  in2="blurOut"
-                  mode="normal"
-                  opacity="0"
-               />
-            </filter>
-         </defs> */}
          
          <line
             id="am4-graph-2-1"

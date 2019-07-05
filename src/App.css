@@ -11,14 +11,17 @@
 
 /* #am4-graph-1-start, */
 #am4-graph-1-mid,
-#am4-graph-1-end {
+#am4-graph-1-end,
+#am4-graph-1-error
+#am4-graph-1-rest {
    visibility: hidden
 }
 
 #am4-graph-1-start {
-   z-index: 10;
+   z-index: 40;
    opacity: 1;
    visibility: visible;
+   display: block;
 }
 
 #am4-graph-2-1, 
