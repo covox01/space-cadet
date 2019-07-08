@@ -14,7 +14,6 @@ class Module4Switch1 extends Component {
          this.triggerTween = new TimelineLite();
          this.morphSVG = MorphSVGPlugin
          this.morphTween = new TimelineMax();
-         this.morphSVG.convertToPath("polyline, line")  
     }
 
     handleSwitch = () => {
@@ -40,14 +39,13 @@ class Module4Switch1 extends Component {
       .to([this.graph1Start], 0.3, {
          morphSVG: this.graph1Mid,
          ease: Elastic.easeInOut,
-         opacity: 1,
          stroke: "#efda73",
          attr: {filter: "url(#monitor-start)"}
       })
       .to([this.graph1Start], 0.3, {
          morphSVG: this.graph1Rest,
          ease: Elastic.easeInOut,
-         attr: {filter: "url(#monitor-start)"}
+         stroke: "#a3e8ce",
       })
    }
 
@@ -59,19 +57,18 @@ class Module4Switch1 extends Component {
          ease: Elastic.easeInOut,
          opacity: 1,
          stroke: "#ff3e3e",
-         visibility: "visible",
-         attr: {filter: "url(#monitor-start)"}
+      })
+      .to([this.graph1Start], .3, {
+         morphSVG: this.graph1Start,
+         ease: Elastic.easeInOut,
+         stroke: "#efda73",
       })
       .to([this.graph1Start], .3, {
          morphSVG: this.graph1Rest,
          ease: Elastic.easeInOut,
-         attr: {filter: "url(#monitor-start)"}
-      })
+         stroke: "#efda73",
+      }, "-=.3")
    }
-
-   
-
-
 
    switchDown = () => {
    this.animationOne()
@@ -96,8 +93,6 @@ class Module4Switch1 extends Component {
 
    }
 
-
-   
    switchUp = () => {
       this.animationTwo()
       this.triggerTween
@@ -137,10 +132,8 @@ class Module4Switch1 extends Component {
         <Fragment>
 
          {/* ----- Monitor Animation Paths ----- */}
-
             <path
                ref={path => (this.graph1Start = path)}
-               filter="url(#monitor-start)"
                id="am4-graph-1-start"
                fill="none"
                stroke="gray"
@@ -159,22 +152,38 @@ class Module4Switch1 extends Component {
                strokeWidth="3"
                strokeLinecap="round"
                strokeMiterlimit="10"
+               opacity="1"
                d="M29.5,140.8c0,0,22.1-47.4,81.8-47.4s83.4,87,150.8,87c44.5,0,75.3-39.6,75.3-39.6"
+            />
+
+            <path
+               ref={path => this.graph1End = path}
+               filter="url(#monitor-start)"
+               id="am4-graph-1-end"
+               fill="none"
+               stroke="gray"
+               strokeWidth="3"
+               strokeLinecap="round"
+               strokeMiterlimit="10"
+               d="M29.5,140.8c0,0,18.7,39.6,77.6,39.6s93.9-87,150.9-87s79.4,47.4,79.4,47.4"
             />
 
             <path 
                ref={path => (this.graph1Rest = path)}
-               id="am4-graph-1-rest"
-               d='M29.8,139.3l62.5-0.6l187-0.6	h63.1' 
+               id="am4-graph-1-rest"   
                fill='none' 
                stroke='#40ffff'
                strokeWidth='3' 
                strokeLinecap='round' 
                strokeMiterlimit='10'
-               visibility={this.state.visibility}
+               opacity="1"
+               d="M29.8,139.3l62.5-0.6l187-0.6
+               h63.1" 
+               // visibility={this.state.visibility}
             />
 
             {/* False Animation When Switch is Incorrect*/}
+
             <path
                ref={path => {this.graph1Error = path}}
                id="am4-graph-1-error"
@@ -183,8 +192,10 @@ class Module4Switch1 extends Component {
                strokeWidth='3' 
                strokeLinecap='round' 
                strokeMiterlimit='10'
-               d='M27.7,137.9l62.5-0.6	l8.4,25.7l6.7-45.2l6.1,67l14-96.6l10.6,88.2l16.7-69.2l10,59.7l18.4-96c0,0,26.2,140.7,25.7,142.3c-0.6,1.7,8.9-115,8.9-115	l12.8,68.1l5.6-56.4l14,65.9l24.6-63.6l4.5,24.6h63.1'
+               d='M28.6,140.4	c0,0,28.2-3.3,35.8-2.6c11.6,1.1,6.6,23.5,20,25.8c13.4,2.2,4.8-30,19.8-30s8.9,45.2,22.3,41.9s2.8-68.7,17.3-68.7	c23.4,0,5.6,83.7,26.2,84.8s11.2-103.8,27.3-102.7c16.2,1.1,10,79.8,23.4,78.1c13.4-1.7,7.2-56.1,18.4-55.8	c11.2,0.3,7.4,70.9,22.8,67.6c10-2.1,5.7-65.9,15.7-65.4c9.6,0.5,5.8,20.9,19,24.4c13.1,3.5,42.1,0,42.1,0'
             />
+
+
              <defs>
                <filter id="monitor-start" x="-1" y="-.8" width="500%" height="300%">
                   <feOffset in="SourceGraphic" dx="0" dy="0" />

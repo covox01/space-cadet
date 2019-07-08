@@ -12,7 +12,8 @@
 /* #am4-graph-1-start, */
 #am4-graph-1-mid,
 #am4-graph-1-end,
-#am4-graph-1-error
+#am4-graph-1-error,
+#am4-graph-1-error-2,
 #am4-graph-1-rest {
    visibility: hidden
 }
@@ -24,8 +25,8 @@
    display: block;
 }
 
-#am4-graph-2-1, 
+/* #am4-graph-2-1, 
 #am4-graph-2-2,
 #am4-graph-2-3{
    visibility: hidden
-}
+} */

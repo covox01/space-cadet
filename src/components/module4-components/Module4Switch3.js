@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from "react";
-import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap"
+import { Back, TimelineLite, TimelineMax, Elastic, TweenMax , Power3, Power2 } from "gsap";
+import MorphSVGPlugin from "../../MorphSVGPlugin";
+import { Ease } from "gsap/TweenLite";
+import DrawSVGPlugin from "../../../src/DrawSVGPlugin";
 
 class Module4Switch3 extends Component {
    constructor(props){
@@ -10,6 +13,10 @@ class Module4Switch3 extends Component {
          switchComplete: false
       };
       this.triggerTween = new TimelineLite();
+      this.morphSVG = MorphSVGPlugin;
+      this.morphTween = new TimelineMax();
+      this.drawSVG = DrawSVGPlugin;
+      this.drawTween = new TimelineMax();
    }
 
    handleSwitch = () => {
@@ -30,27 +37,104 @@ class Module4Switch3 extends Component {
 			});
 			this.props.handleModule4Switch3();
 		}
-	};
+   };
+   
+   animateOne = () => {
+      const drawTweenOn = new TimelineMax();
+   // ----- Morph Tween
+
+      this.morphTween
+         .kill()
+         .to([this.graph1Start], .2, {
+            morphSVG: this.graph1Mid,
+            ease: Power3.easeInOut,
+            stroke: "#efda73",
+            attr: {filter: "url(#monitor-start"} 
+         })
+         .to([this.graph1Start], .2, {
+            morphSVG: this.graph1Error, 
+            ease: Power2.easeInOut
+         })
+         .to([this.graph1Start], .2, {
+            morphSVG: this.graph1Rest, 
+            ease: Power2.easeInOut,
+            stroke: "#ff3e3e"
+         })
+
+   // ----- Draw Tween
+      drawTweenOn
+         .kill()
+         .to([this.graph1], .5, {
+            drawSVG: "0%",
+            stroke: "grey" 
+         }, .01)
+         .to([this.graph2], .5, {
+            drawSVG: "0%",
+            stroke: "grey"
+         }, .1)
+         .to([this.graph3], .5, {
+            drawSVG: "0%",
+            stroke: "grey"
+         }, .1)
+   }
+
+   animateTwo = () => {
+      const drawTweenOff = new TimelineMax()
+      this.morphTween
+         .kill()
+         .to([this.graph1Start], .2, {
+            morphSVG: this.graph1End,
+            ease: Power3.easeInOut,
+            stroke: "#efda73",
+            attr: {filter: "url(#monitor-start"} 
+         })
+         .to([this.graph1Start], .2, {
+            morphSVG: this.graph1Mid, 
+            ease: Power2.easeInOut
+         })
+         .to([this.graph1Start], .2, {
+            morphSVG: this.graph1Rest, 
+            ease: Power2.easeInOut,
+            stroke: "#a3e8ce"
+         })
+      
+      drawTweenOff
+         // .kill()
+         .to([this.graph1], .5, {
+            drawSVG: "100%",
+            stroke: "#17FFFB"
+         }, .2)
+         .to([this.graph2], .5, {
+            drawSVG: "100%",
+            stroke: "#efda73"
+         }, .2)
+         .to([this.graph3], .5, {
+            drawSVG: "100%",
+            stroke: "#FF3E3E"
+         }, .2)
+   }
 
    switchDown = () => {
-   this.triggerTween
-      .to(this.trigger, 0.2, {
-         y: 115,
-         fill: "#efda73",
-         ease: Back.easeInOut,
-      })
-      .to(this.filter, 0.2, {
-         attr: { stdDeviation: 15 },
-         ease: Elastic.easeOut
-      }, "-=.1")
-      .to([this.trigger, this.filter], 0.2, {
-         attr: { stdDeviation: 20 },
-         fill: "#efda73",
-         ease: Elastic.easeOut,
-      }, "-=.1");
+      this.animateOne()
+      this.triggerTween
+         .to(this.trigger, 0.2, {
+            y: 115,
+            fill: "#efda73",
+            ease: Back.easeInOut,
+         })
+         .to(this.filter, 0.2, {
+            attr: { stdDeviation: 15 },
+            ease: Elastic.easeOut
+         }, "-=.1")
+         .to([this.trigger, this.filter], 0.2, {
+            attr: { stdDeviation: 20 },
+            fill: "#efda73",
+            ease: Elastic.easeOut,
+         }, "-=.1");
    }
 
    switchUp = () => {
+      this.animateTwo()
       this.triggerTween
          .to(this.trigger, 0.2, {
             y: 0,
@@ -67,8 +151,6 @@ class Module4Switch3 extends Component {
             fill: "#a3e8ce"
          }, "-=.2");
    }
-
-    
 
    handleClick = () => {
       this.handleSwitch();
@@ -88,6 +170,130 @@ class Module4Switch3 extends Component {
    render() {
       return(
          <Fragment>
+
+      {/* >>>>> Monitor Animation Paths >>>>> */}
+
+               <path
+                  ref={path => (this.graph1Start = path)}
+                  id="am4-graph-1-start"
+                  fill="none"
+                  stroke="gray"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  visibility="visible"
+                  opacity="1"
+                  d="M29.5,140.8 107.1,140.8 253.5,140.8 337.4,140.8"
+               />
+               <path
+                  ref={path => (this.graph1Mid = path)}
+                  id="am4-graph-1-mid"
+                  fill="none"
+                  stroke="#a3e8ce"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  opacity="1"
+                  d="M29.5,140.8c0,0,22.1-47.4,81.8-47.4s83.4,87,150.8,87c44.5,0,75.3-39.6,75.3-39.6"
+               />
+
+               <path 
+                  ref={path => (this.graph1Rest = path)}
+                  id="am4-graph-1-rest"   
+                  fill='none' 
+                  stroke='#40ffff'
+                  strokeWidth='3' 
+                  strokeLinecap='round' 
+                  strokeMiterlimit='10'
+                  opacity="1"
+                  d="M29.8,139.3l62.5-0.6l187-0.6
+                  h63.1" 
+               />
+
+               <path 
+                  ref={path => (this.graph1Rest = path)}
+                  id="am4-graph-1-rest"   
+                  fill='none' 
+                  stroke='#40ffff'
+                  strokeWidth='3' 
+                  strokeLinecap='round' 
+                  strokeMiterlimit='10'
+                  opacity="1"
+                  d="M29.8,139.3l62.5-0.6l187-0.6
+                  h63.1" 
+               />
+
+               <path
+                  ref={path => this.graph1End = path}
+                  filter="url(#monitor-start)"
+                  id="am4-graph-1-end"
+                  fill="none"
+                  stroke="gray"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  d="M29.5,140.8c0,0,18.7,39.6,77.6,39.6s93.9-87,150.9-87s79.4,47.4,79.4,47.4"
+               />
+         {/* >>>>>> False Animation When Switch is Incorrect >>>>> */}
+
+               <path
+                  ref={path => {this.graph1Error = path}}
+                  id="am4-graph-1-error"
+                  fill='none' 
+                  stroke='#ff3e3e' 
+                  strokeWidth='3' 
+                  strokeLinecap='round' 
+                  strokeMiterlimit='10'
+                  d='M28.6,140.4	c0,0,28.2-3.3,35.8-2.6c11.6,1.1,6.6,23.5,20,25.8c13.4,2.2,4.8-30,19.8-30s8.9,45.2,22.3,41.9s2.8-68.7,17.3-68.7	c23.4,0,5.6,83.7,26.2,84.8s11.2-103.8,27.3-102.7c16.2,1.1,10,79.8,23.4,78.1c13.4-1.7,7.2-56.1,18.4-55.8	c11.2,0.3,7.4,70.9,22.8,67.6c10-2.1,5.7-65.9,15.7-65.4c9.6,0.5,5.8,20.9,19,24.4c13.1,3.5,42.1,0,42.1,0'
+               />
+               
+         {/* >>>>>> False Animation When Switch is Incorrect >>>>> */}
+
+               <line
+                  ref={line => (this.graph1 = line)}
+                  id="am4-graph-2-1"
+                  fill="none"
+                  stroke="grey"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  x1="27"
+                  y1="66.1"
+                  x2="341"
+                  y2="66.1"
+                  // visibility={this.state.visibility}
+               />
+               <line
+                  ref={line => (this.graph2 = line)}
+                  id="am4-graph-2-2"
+                  fill="none"
+                  stroke="grey"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  x1="27"
+                  y1="140.8"
+                  x2="341"
+                  y2="140.8"
+                  // visibility={this.state.visibility}
+               />
+               <line
+                  ref={line => (this.graph3 = line)}
+                  id="am4-graph-2-3"
+                  fill="none"
+                  stroke="grey"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeMiterlimit="10"
+                  x1="27"
+                  y1="215.5"
+                  x2="341"
+                  y2="215.5"
+                  // visibility={this.state.visibility}
+               />
+            
+   {/* <<<<< Monitor Animation Paths <<<<< */}
+
             <g id='am4-switch-3' onClick={() => this.handleClick()}>
                <path 
                   fill='#282828' 
