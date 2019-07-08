@@ -9,6 +9,9 @@ class Module3Radar1 extends Component{
         this.state = {
             switch: true
         }
+        this.morphSVGPath = MorphSVGPlugin.pathDataToBezier("am3-radar-outer-ring");
+        this.morphTween = new TimelineMax();
+        
     } 
     render(){
         return(
@@ -21,6 +24,7 @@ class Module3Radar1 extends Component{
 					id="am3-radar-face"
 				/>
 				<path
+                    id="am3-radar-outer-ring"
 					fill="gray"
 					d="M568.9,500.5c-117,0-212.2-95.2-212.2-212.2S451.9,76,568.9,76s212.2,95.2,212.2,212.2 S686,500.5,568.9,500.5z M568.9,79.7c-115,0-208.5,93.5-208.5,208.5S454,496.7,568.9,496.7s208.5-93.5,208.5-208.5 S683.9,79.7,568.9,79.7z"
 					id="am3-outer-ring"
