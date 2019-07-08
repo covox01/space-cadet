@@ -49,6 +49,18 @@ class App extends Component {
 		}
 	};
 
+	handleModule3 = checkSwitch => {
+		if (this.state.module3 === false && checkSwitch === true) {
+			this.setState({
+				module3: checkSwitch,
+			});
+		} else if (this.state.module3 === true && checkSwitch === false) {
+			this.setState({
+				module3: checkSwitch,
+			});
+		}
+	};
+
 	handleModule4 = checkArray => {
 		if (this.state.module4 === false && checkArray === true) {
 			this.setState({
@@ -95,7 +107,8 @@ class App extends Component {
 					<Module2
 						handleModule2={checkArray => this.handleModule2(checkArray)}
 					/>
-					<Module3 />
+					<Module3 
+						handleModule3={checkSwitch => this.handleModule3(checkSwitch)}/>
 					<Module4 
 						handleModule4={checkArray => this.handleModule4(checkArray)}/>
 					<Module5

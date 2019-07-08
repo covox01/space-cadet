@@ -147,9 +147,8 @@ class Module4 extends Component {
                   handleModule4Switch2={() => this.handleModule4Switch2()}/>
                <Module4Switch3 
                   handleModule4Switch3={() => this.handleModule4Switch3()}/>
-               
-            </svg>
-            <defs>
+            
+			<defs>
                <filter id="monitor-start" x="-1" y="-.8" width="500%" height="300%">
                   <feOffset in="SourceGraphic" dx="0" dy="0" />
                   <feGaussianBlur
@@ -166,6 +165,8 @@ class Module4 extends Component {
                   />
                </filter>
             </defs>
+            </svg>
+           
          {/* <<<<< Module 4 SVG Stuff <<<<< */}
          </Fragment>
 			

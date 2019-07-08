@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Back, TimelineLite, TimelineMax, Elastic, TweenMax , Power3, Power2 } from "gsap";
 import MorphSVGPlugin from "../../MorphSVGPlugin";
-import { Ease } from "gsap/TweenLite";
 import DrawSVGPlugin from "../../../src/DrawSVGPlugin";
 
 class Module4Switch3 extends Component {
