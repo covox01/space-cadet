@@ -10,8 +10,8 @@ class Module3 extends Component {
 		}
 	}
 
-	handeModule3Switch1 = () => {
-      const updateSwitch = [...this.state.switch];
+	handleModule3Switch1 = () => {
+      const updateSwitch = this.state.switch;
       const switch1 = updateSwitch;
       if (!switch1) {
          this.setState({
@@ -75,7 +75,7 @@ class Module3 extends Component {
 				</g>
 				{/* <Module3Radar1 /> */}
             <Module3Switch1 
-               handleModule3Switch={this.handleModule3Switch1}/>
+               handleModule3Switch1={this.handleModule3Switch1}/>
 			</svg>
 		);
 	}
