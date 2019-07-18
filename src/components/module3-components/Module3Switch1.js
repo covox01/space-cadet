@@ -54,12 +54,15 @@ class Module3Switch1 extends Component {
            .to([this.filter, this.innerCircle], .5, {
               transformOrigin: "(150% 50%)",
               rotation: -180,
-            //   fill: "#f9e815",
+              fill: "#ef1c00",
               ease: Power3.easeOut
            })
            .to([this.filter4, this.outerCircle], .5, {
               attr: { stdDeviation: 15},
-              fill: "#a3e8ce"
+              fill: "#f9e815"
+           })
+           .to([this.radarCircle], .3, {
+              fill: "#19f7dc"
            })
       }
 
