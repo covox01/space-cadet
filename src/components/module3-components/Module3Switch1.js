@@ -51,19 +51,30 @@ class Module3Switch1 extends Component {
    
     sequenceTwo = () => {
         this.triggerTween
-           .to([this.filter, this.innerCircle], .5, {
+           .to([this.filter, this.innerCircle], 1, {
               transformOrigin: "(150% 50%)",
               rotation: -180,
-              fill: "#ef1c00",
+              fill: "#efda73",
               ease: Power3.easeOut
-           })
-           .to([this.filter4, this.outerCircle], .5, {
+           }, "sync")
+           .to([this.trigger2], .3, {
+               fill: "#efda73"
+            }, "sync")
+
+           .to([this.filter4, this.outerCircle], .3, {
               attr: { stdDeviation: 15},
-              fill: "#f9e815"
-           })
+              fill: "#efda73"
+           }, "sync")
            .to([this.radarCircle], .3, {
-              fill: "#19f7dc"
-           })
+              fill: "#efda73"
+           }, "sync")
+           
+           .to([this.outerCircle], .3, {
+              fill: "#a3e8ce"
+           }, "-=.2")
+           .to([this.radarCircle], .3, {
+              fill: "#ef1c00"
+           }, "-=.2")
       }
 
     handleSwitch = () => {
