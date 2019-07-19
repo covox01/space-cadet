@@ -85,21 +85,7 @@ class Module3Switch1 extends Component {
            }, "-=.2")
       }
 
-    handleSwitch = () => {
-        if (!this.state.sequence1) {
-            this.setState({
-                sequence1: true
-            });
-            this.props.handleModule3Switch1();
-        } else if (this.state.sequence1) {
-            this.setState({
-                sequence2: true
-            });
-            this.props.handleModule3Switch1();
-        } 
-    }
-
-   handleClick = () => {
+   confirmSwitch = () => {
       this.confirm
          .to([this.trigger1], .3, {
             fill: "#282828",
@@ -108,21 +94,26 @@ class Module3Switch1 extends Component {
          .to([this.trigger1], .3, {
             fill: "#303030",
             ease: Power2.easeInOut
-         })
-
-      this.handleSwitch();
-      if (!this.state.animate) {
-         this.setState({
-            animate: true
-         })
-         this.sequenceOne();
-      } else {
-         this.setState({
-            animate: false
-         })
-         this.sequenceTwo()
-      }
+      })
    }
+
+    handleClick = () => {
+        if (!this.state.sequence1) {
+            this.setState({
+                sequence1: true
+            });
+            this.confirmSwitch()
+            this.sequenceOne();
+            this.props.handleModule3Switch1();
+        } else if (this.state.sequence1) {
+            this.setState({
+                sequence2: true
+            });
+            this.confirmSwitch()
+            this.sequenceTwo()
+            this.props.handleModule3Switch1();
+        } 
+    }
 
    render() {
       return (
