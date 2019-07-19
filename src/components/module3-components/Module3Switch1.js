@@ -98,7 +98,7 @@ class Module3Switch1 extends Component {
    }
 
     handleClick = () => {
-        if (!this.state.sequence1) {
+        if (!this.state.sequence1 && this) {
             this.setState({
                 sequence1: true
             });
