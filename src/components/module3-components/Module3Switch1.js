@@ -5,11 +5,12 @@ import DrawSVGPlugin from "../../../src/DrawSVGPlugin";
 import { Ease, Power2 } from "gsap/TweenLite";
 
 class Module3Switch1 extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			animate: false,
-			switchComplete: false,
+   constructor(props) {
+      super(props);
+      this.state = {
+         animate: false,
+         sequence1: false,
+         sequence2: false,
       };
       this.confirm = new TimelineMax();
       this.triggerTween = new TimelineLite();
@@ -40,16 +41,20 @@ class Module3Switch1 extends Component {
    }
 
    sequenceOne = () => {
-    this.triggerTween
-       .to([this.filter, this.trigger2], .5, {
-          attr: { stdDeviation: 15},
-          fill: "#ef1c00",
-          ease: Power3.easeOut,
-       })
-       this.sequence1()
+      if (!this.state.sequence2) {
+         this.triggerTween
+            .to([this.filter, this.trigger2], .5, {
+               attr: { stdDeviation: 15},
+               fill: "#ef1c00",
+               ease: Power3.easeOut,
+         })
+         this.sequence1()
+      }
+    
     }
    
     sequenceTwo = () => {
+
         this.triggerTween
            .to([this.filter, this.innerCircle], 1, {
               transformOrigin: "(150% 50%)",
@@ -57,41 +62,44 @@ class Module3Switch1 extends Component {
               fill: "#efda73",
               ease: Power3.easeOut
            }, "sync")
+
            .to([this.trigger2], .3, {
                fill: "#efda73"
-            }, "sync")
+            }, "sync-=.3")
 
            .to([this.filter4, this.outerCircle], .3, {
               attr: { stdDeviation: 15},
               fill: "#efda73"
-           }, "sync")
+           }, "sync-=.3")
+
            .to([this.radarCircle], .3, {
               fill: "#efda73"
-           }, "sync")
+           }, "sync-=.3")
            
            .to([this.outerCircle], .3, {
               fill: "#a3e8ce"
            }, "-=.2")
+
            .to([this.radarCircle], .3, {
               fill: "#ef1c00"
            }, "-=.2")
       }
 
     handleSwitch = () => {
-        if (!this.state.switchComplete) {
+        if (!this.state.sequence1) {
             this.setState({
-                switchComplete: true,
+                sequence1: true
             });
             this.props.handleModule3Switch1();
-        } else if (this.state.switchComplete) {
+        } else if (this.state.sequence1) {
             this.setState({
-                switchComplete: false,
+                sequence2: true
             });
             this.props.handleModule3Switch1();
-        }
+        } 
     }
 
-	handleClick = () => {
+   handleClick = () => {
       this.confirm
          .to([this.trigger1], .3, {
             fill: "#282828",
@@ -116,9 +124,9 @@ class Module3Switch1 extends Component {
       }
    }
 
-	render() {
-		return (
-			<Fragment>
+   render() {
+      return (
+         <Fragment>
                <g onClick={() => this.handleClick()}>
                   <path
                      ref={path => (this.trigger1 = path)}
