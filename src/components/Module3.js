@@ -17,11 +17,7 @@ class Module3 extends Component {
          this.setState({
             switch: true
          })
-      } else if (switch1) {
-         this.setState({
-            switch: false
-         })
-      }
+      } 
 	}
 
 	moduleBorderOn = () => {

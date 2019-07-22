@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Module7Switch1 from "./module7-components/Module7Switch1"
+import Module7Switch2 from "./module7-components/Module7Switch2"
 
 class Module7 extends Component {
 	render() {
@@ -25,16 +27,8 @@ class Module7 extends Component {
 					fill="#282828"
 					d="M156,265.9c70,2.1,202.9-21.3,242.5-27.6c39.6-6.3,110.1-21.9,110.1-82.9v0	c0-61-46.1-88.6-107.1-88.6L156,45C95,45,45.5,94.4,45.5,155.4v0C45.5,216.4,105,268.7,156,265.9z"
 				/>
-				<path
-					fill="gray"
-					d="M423.9,112.1c-22.8,0-41.3,18.5-41.3,41.3s18.5,41.3,41.3,41.3s41.3-18.5,41.3-41.3 S446.7,112.1,423.9,112.1z"
-					id="am7-trigger-2"
-				/>
-				<path
-					id="am7-trigger-1"
-					fill="gray"
-					d="M152.4,95.9c-31.4,0-57,25.6-57,57s25.6,57,57,57s57-25.6,57-57S183.9,95.9,152.4,95.9z"
-				/>
+				<Module7Switch1 />
+				<Module7Switch2 />
 			</svg>
 		);
 	}

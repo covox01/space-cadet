@@ -8,7 +8,7 @@ class Module3Switch1 extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         animate: false,
+         // animate: false,
          sequence1: false,
          sequence2: false,
       };
@@ -98,13 +98,12 @@ class Module3Switch1 extends Component {
    }
 
     handleClick = () => {
-        if (!this.state.sequence1 && this) {
+        if (!this.state.sequence1) {
             this.setState({
                 sequence1: true
             });
             this.confirmSwitch()
             this.sequenceOne();
-            this.props.handleModule3Switch1();
         } else if (this.state.sequence1) {
             this.setState({
                 sequence2: true
