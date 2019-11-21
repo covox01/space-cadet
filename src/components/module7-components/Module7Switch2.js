@@ -1,6 +1,12 @@
 import React, { Component, Fragment } from "react";
+import { timingSafeEqual } from "crypto";
+import { Back, TimelineLite, TimelineMax, Elastic, TweenMax } from "gsap";
 
 class Module7Switch2 extends Component {
+    constructor(props){
+        super(props);
+        
+    }
     render() {
         return(
             <path

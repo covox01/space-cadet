@@ -3,6 +3,39 @@ import Module7Switch1 from "./module7-components/Module7Switch1"
 import Module7Switch2 from "./module7-components/Module7Switch2"
 
 class Module7 extends Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			switches: [
+				{
+					switch1: false,
+				},
+				{
+					switfch2: false
+				}
+			]
+
+		}
+	}
+
+	handleModule1Switch1 = () => {
+		const updateSwitchArray = [...this.state.switches];
+		const switch1 = this.state.switches[0].switch1;
+		if (switch1 === false) {
+			const updateSwitch = { id: 1, switch1: true };
+			updateSwitchArray.splice(0, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		} else if (switch1 === true) {
+			const updateSwitch = { switch1: false };
+			updateSwitchArray.splice(0, 1, updateSwitch);
+			this.setState({
+				switches: updateSwitchArray,
+			});
+		}
+	};
+
 	render() {
 		return (
 			<svg
@@ -27,8 +60,12 @@ class Module7 extends Component {
 					fill="#282828"
 					d="M156,265.9c70,2.1,202.9-21.3,242.5-27.6c39.6-6.3,110.1-21.9,110.1-82.9v0	c0-61-46.1-88.6-107.1-88.6L156,45C95,45,45.5,94.4,45.5,155.4v0C45.5,216.4,105,268.7,156,265.9z"
 				/>
-				<Module7Switch1 />
-				<Module7Switch2 />
+				<Module7Switch1 
+					handleModule7Switch1={() => this.handleModule7Switch1()}
+				/>
+				<Module7Switch2 
+					handleModule7Switch2={() => this.handleModule7Switch2()}
+					/>
 			</svg>
 		);
 	}

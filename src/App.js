@@ -102,23 +102,33 @@ class App extends Component {
 			<div className="super-container">
 				<div className="app-container">
 					<Module1
+						className="class-module1"
 						handleModule1={checkArray => this.handleModule1(checkArray)}
 					/>
 					<Module2
+						className="class-module2"
 						handleModule2={checkArray => this.handleModule2(checkArray)}
 					/>
 					<Module3 
+						className="class-module3"
 						handleModule3={checkSwitch => this.handleModule3(checkSwitch)}/>
 					<Module4 
+						className="class-module4"
 						handleModule4={checkArray => this.handleModule4(checkArray)}/>
 					<Module5
+						className="class-module5"
 						handleModule5={checkArray => this.handleModule5(checkArray)}
 					/>
 					<Module6
+						className="class-module6"
 						handleModule6={checkArray => this.handleModule6(checkArray)}
 					/>
-					<Module7 />
-					<Module8 />
+					<Module7 
+						className="class-module7"
+					/>
+					<Module8 
+						className="class-module8"
+					/>
 				</div>
 			</div>
 		);
