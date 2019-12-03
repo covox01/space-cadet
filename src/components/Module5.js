@@ -128,7 +128,7 @@ class Module5 extends Component {
 	render() {
 		return (
 			<svg
-				id="Layer_1"
+				id="module5"
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 860 299"
 			>

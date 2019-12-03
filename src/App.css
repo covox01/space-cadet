@@ -29,17 +29,18 @@
    width: 100%;
    display: flex;
    align-items: center;
-   border: 1px solid green;
+   background: rgb(31, 31, 31);
 }
 
 .app-container {
+   background: rgb(65, 65, 65);
    margin: 0 auto;
    /* width: 800px;
    height: 300px; */
    display: grid;
-   grid-template-columns: repeat(4, 100px);
-   grid-template-rows: 25% 25% 25% 25%;
-   border: 1px solid red;
+   grid-template-columns: 210px 153px 57px 210px 330px;
+   grid-template-rows: 150px 145px 173px;
+   /* border: 1px solid red; */
 }
 
 #module1 {
@@ -49,7 +50,58 @@
    grid-column-end: 2;
    grid-row-start: 1;
    grid-row-end: 2;
+}
 
+#module2 {
+   grid-row-start: 1;
+   grid-column-start: 2;
+   grid-column-end: 4;
+}
+
+#module3 {
+   grid-row-start: 1;
+   grid-column-start: 4;
+   grid-column-end: 5;
+   /* border: 1px solid blue; */
+}
+
+#module4 {
+   grid-row-start: 2;
+   grid-column-start: 1;
+   grid-column-end: 2;
+}
+
+#module5 {
+   grid-column-start: 2;
+   grid-column-end: 5;
+   /* grid-row-start: 2; */
+   grid-row-end: 3;
+   /* border: 1px solid red; */
+}
+
+#module6 {
+   display: flex;
+   align-self: center;
+   grid-column-start: 2;
+   grid-column-end: 3;
+   grid-row-start: 3;
+   grid-row-end: 5;
+}
+
+#module7 {
+   display: flex;
+   align-self: center;
+   grid-column-start: 3;
+   grid-column-end: 5;
+   grid-row-start: 3;
+   grid-row-end: 4;
+   height: 120px;
+   
+}
+
+#module8 {
+   grid-column-start: 5;
+   grid-row-start: 1;
 }
 
 
